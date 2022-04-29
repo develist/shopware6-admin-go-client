@@ -10,8 +10,8 @@ import (
 )
 
 type BaseRepository[T any] interface {
-	GetList() (*[]T, error)
 	GetDetail(id int) (*T, error)
+	GetList() (*[]T, error)
 	Search(criteria entity.Criteria) (*[]T, error)
 	SearchIds(criteria entity.Criteria) (*[]string, error)
 }
@@ -27,13 +27,15 @@ type Endpoints struct {
 	searchIds string
 }
 
-func CreateRepository[T any](baseUrl string, httpClient *http.Client) *Repository[T] {
+// CreateRepository Creates a new generic repository. The Shopware 6 base API URL and a preconfigured
+// http.Client is needed.
+func CreateRepository[T any](apiBaseUrl string, httpClient *http.Client) *Repository[T] {
 	var a T
 	endpoint := strings.ToLower(toKebabCase(reflect.TypeOf(a).Name()))
 	client := httpClient
-	entityEndPoint := strings.TrimRight(baseUrl, "/") + "/api/" + endpoint
-	searchEndPoint := strings.TrimRight(baseUrl, "/") + "/api/search/" + endpoint
-	searchIdsEndPoint := strings.TrimRight(baseUrl, "/") + "/api/search-ids/" + endpoint
+	entityEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/" + endpoint
+	searchEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/search/" + endpoint
+	searchIdsEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/search-ids/" + endpoint
 	endpoints := Endpoints{entityEndPoint, searchEndPoint, searchIdsEndPoint}
 	return &Repository[T]{endpoints, client}
 }
