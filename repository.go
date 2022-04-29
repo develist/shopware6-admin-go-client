@@ -15,8 +15,8 @@ type EntityRepository[T any] struct {
 }
 
 type RepositoryConfiguration struct {
-	apiBaseUrl string
-	httpClient *http.Client
+	ApiBaseUrl string
+	HttpClient *http.Client
 }
 
 type endpoints struct {
@@ -30,10 +30,10 @@ type endpoints struct {
 func CreateEntityRepository[T any](config *RepositoryConfiguration) *EntityRepository[T] {
 	var a T
 	endpoint := strings.ToLower(toKebabCase(reflect.TypeOf(a).Name()))
-	client := config.httpClient
-	entityEndPoint := strings.TrimRight(config.apiBaseUrl, "/") + "/" + endpoint
-	searchEndPoint := strings.TrimRight(config.apiBaseUrl, "/") + "/search/" + endpoint
-	searchIdsEndPoint := strings.TrimRight(config.apiBaseUrl, "/") + "/search-ids/" + endpoint
+	client := config.HttpClient
+	entityEndPoint := strings.TrimRight(config.ApiBaseUrl, "/") + "/" + endpoint
+	searchEndPoint := strings.TrimRight(config.ApiBaseUrl, "/") + "/search/" + endpoint
+	searchIdsEndPoint := strings.TrimRight(config.ApiBaseUrl, "/") + "/search-ids/" + endpoint
 	endpoints := endpoints{entityEndPoint, searchEndPoint, searchIdsEndPoint}
 	return &EntityRepository[T]{endpoints, client}
 }
