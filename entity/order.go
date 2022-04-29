@@ -5,25 +5,56 @@ import (
 )
 
 type Order struct {
-	Id                string
-	OrderNumber       string
-	OrderDateTime     time.Time
-	CreatedAt         time.Time
-	UpdatedAt         time.Time
-	CurrencyId        string
-	CurrencyFactor    float64
+	// Addresses
+	AffiliateCode           string
+	AmountNet               float64
+	AmountTotal             float64
+	AutoIncrement           int
+	BillingAddress          BillingAddress
+	BillingAddressId        string
+	BillingAddressVersionId string
+	CampaignCode            string
+	CreatedAt               time.Time
+	// CreatedBy
+	CreatedById    string
+	Currency       Currency
+	CurrencyFactor float64
+	CurrencyId     string
+	// CustomFields
+	CustomerComment string
+	DeepLinkCode    string
+	Deliveries      []Delivery
+	// Documents
+	Id           string
+	ItemRounding ItemRounding
+	Language     Language
+	LanguageId   string
+	// LineItems
+	OrderCustomer OrderCustomer
+	OrderDate     string
+	OrderDateTime time.Time
+	OrderNumber   string
+	PositionPrice float64
+	Price         Price
+	// RuleIds
+	// SalesChannel
 	SalesChannelId    string
-	OrderCustomer     OrderCustomer
-	BillingAddressId  string
-	BillingAddress    BillingAddress
-	Price             Price
-	AmountTotal       float64
-	AmountNet         float64
 	ShippingCosts     ShippingCosts
 	ShippingTotal     float64
 	StateId           string
 	StateMachineState StateMachineState
-	Transactions      []Transaction
-	Deliveries        []Delivery
-	VersionId         string
+	// Tags
+	TaxStatus string
+	// TotalRounding
+	Transactions []Transaction
+	UpdatedAt    time.Time
+	UpdatedBy    string
+	UpdatedById  string
+	VersionId    string
+}
+
+type ItemRounding struct {
+	Decimals    int
+	Interval    float64
+	RoundForNet bool
 }
