@@ -86,3 +86,46 @@ func (g *EntityRepository[T]) SearchIds(criteria entity.Criteria) (*[]string, er
 	}
 	return queryArray[string](g.httpClient, req)
 }
+
+func (g *EntityRepository[T]) Create(item *T) error {
+	entityJSON, err := json.Marshal(item)
+	if err != nil {
+		return err
+	}
+	req, err := http.NewRequest(http.MethodPost, g.endpoints.entity, bytes.NewBuffer(entityJSON))
+	if err != nil {
+		return err
+	}
+	_, err = getBody(g.httpClient, req)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *EntityRepository[T]) Update(id string, entity *T) error {
+	url := g.endpoints.entity + "/" + id
+	entityJSON, err := json.Marshal(entity)
+	if err != nil {
+		return err
+	}
+	req, err := http.NewRequest(http.MethodPatch, url, bytes.NewBuffer(entityJSON))
+	if err != nil {
+		return err
+	}
+	_, err = getBody(g.httpClient, req)
+	return err
+}
+
+func (g *EntityRepository[T]) Delete(id string) error {
+	url := g.endpoints.entity + "/" + id
+	req, err := http.NewRequest(http.MethodDelete, url, nil)
+	if err != nil {
+		return err
+	}
+	_, err = getBody(g.httpClient, req)
+	if err != nil {
+		return err
+	}
+	return nil
+}

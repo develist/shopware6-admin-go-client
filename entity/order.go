@@ -30,7 +30,7 @@ type Order struct {
 	Language     Language
 	LanguageId   string
 	// LineItems
-	OrderCustomer OrderCustomer
+	OrderCustomer Customer
 	OrderDate     string
 	OrderDateTime time.Time
 	OrderNumber   string

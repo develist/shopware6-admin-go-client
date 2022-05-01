@@ -50,6 +50,8 @@ func getBody(httpClient *http.Client, request *http.Request) (*[]byte, error) {
 	switch resp.StatusCode {
 	case 200:
 		return &body, nil
+	case 204:
+		return &body, nil
 	case 404:
 		return nil, nil
 	default:
