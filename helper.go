@@ -2,7 +2,6 @@ package shopware6_admin_go_client
 
 import (
 	"encoding/json"
-	"errors"
 	"github.com/develist/shopware6-admin-go-client/entity"
 	"io/ioutil"
 	"net/http"
@@ -19,7 +18,7 @@ func toKebabCase(str string) string {
 	return strings.ToLower(snake)
 }
 
-func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, error) {
+func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, *entity.ApiErrors) {
 	body, err := getBody(httpClient, request)
 	if body == nil || err != nil {
 		return nil, err
@@ -27,24 +26,26 @@ func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, er
 
 	var results entity.Results[T]
 	if err := json.Unmarshal(*body, &results); err != nil {
-		return nil, err
+		return nil, createAPIErrors(err)
 	}
 
 	return &results.Data, nil
 }
 
-func getBody(httpClient *http.Client, request *http.Request) (*[]byte, error) {
+func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *entity.ApiErrors) {
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Accept", "application/json")
 	resp, err := httpClient.Do(request)
-	defer resp.Body.Close()
+	if resp != nil {
+		defer resp.Body.Close()
+	}
 	if err != nil {
-		return nil, err
+		return nil, createAPIErrors(err)
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return nil, err
+		return nil, createAPIErrors(err)
 	}
 
 	switch resp.StatusCode {
@@ -52,9 +53,26 @@ func getBody(httpClient *http.Client, request *http.Request) (*[]byte, error) {
 		return &body, nil
 	case 204:
 		return &body, nil
-	case 404:
-		return nil, nil
 	default:
-		return nil, errors.New(string(body[:]))
+		return nil, createAPIErrorsBytes(&body)
 	}
+}
+
+func createAPIErrorsBytes(err *[]byte) *entity.ApiErrors {
+	if err == nil {
+		return nil
+	}
+	var result entity.ApiErrors
+	if unmarshalErr := json.Unmarshal(*err, &result); unmarshalErr != nil {
+		result.Raw = string(*err)
+		return &result
+	} else {
+		result.Raw = string(*err)
+		return &result
+	}
+}
+
+func createAPIErrors(err error) *entity.ApiErrors {
+	data := []byte(err.Error())
+	return createAPIErrorsBytes(&data)
 }
