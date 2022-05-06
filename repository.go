@@ -39,15 +39,7 @@ func (g *EntityRepository[T]) GetDetail(id string) (*T, *entity.ApiErrors) {
 	if err != nil {
 		return nil, createAPIErrors(err)
 	}
-	body, apiError := getBody(g.httpClient, req)
-	if body == nil || err != nil {
-		return nil, apiError
-	}
-	var result entity.Result[T]
-	if err := json.Unmarshal(*body, &result); err != nil {
-		return nil, createAPIErrors(err)
-	}
-	return &result.Data, nil
+	return querySingle[T](g.httpClient, req)
 }
 
 func (g *EntityRepository[T]) GetList() (*[]T, *entity.ApiErrors) {
@@ -82,8 +74,8 @@ func (g *EntityRepository[T]) SearchIds(criteria entity.Criteria) (*[]string, *e
 	return queryArray[string](g.httpClient, req)
 }
 
-func (g *EntityRepository[T]) Create(item *T) *entity.ApiErrors {
-	entityJSON, err := json.Marshal(item)
+func (g *EntityRepository[T]) Create(entity *T) *entity.ApiErrors {
+	entityJSON, err := json.Marshal(entity)
 	if err != nil {
 		return createAPIErrors(err)
 	}

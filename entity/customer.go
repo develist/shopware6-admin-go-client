@@ -1,5 +1,12 @@
 package entity
 
+type CustomerAddress struct {
+	AdditionalAddressLine1 string `json:"additionalAddressLine1,omitempty"`
+	AdditionalAddressLine2 string `json:"additionalAddressLine2,omitempty"`
+	City                   string `json:"city,omitempty"`
+	Company                string `json:"company,omitempty"`
+}
+
 type Customer struct {
 	Active        bool   `json:"active,omitempty"`
 	AutoIncrement int    `json:"autoIncrement,omitempty"`

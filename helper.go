@@ -20,16 +20,26 @@ func toKebabCase(str string) string {
 
 func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, *entity.ApiErrors) {
 	body, err := getBody(httpClient, request)
-	if body == nil || err != nil {
+	if err != nil {
 		return nil, err
 	}
-
 	var results entity.Results[T]
 	if err := json.Unmarshal(*body, &results); err != nil {
 		return nil, createAPIErrors(err)
 	}
-
 	return &results.Data, nil
+}
+
+func querySingle[T any](httpClient *http.Client, request *http.Request) (*T, *entity.ApiErrors) {
+	body, err := getBody(httpClient, request)
+	if err != nil {
+		return nil, err
+	}
+	var result entity.Result[T]
+	if err := json.Unmarshal(*body, &result); err != nil {
+		return nil, createAPIErrors(err)
+	}
+	return &result.Data, nil
 }
 
 func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *entity.ApiErrors) {
