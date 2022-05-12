@@ -1,18 +1,18 @@
 package entity
 
-import "github.com/develist/shopware6-admin-go-client/field"
+// own structs
 
 type Criteria struct {
-	Page         int                      `json:"page,omitempty"`
-	Limit        int                      `json:"limit,omitempty"`
-	Filter       []FilterCriteria         `json:"filter,omitempty"`
-	Sort         []SortCriteria           `json:"sort,omitempty"`
-	Associations map[field.Field]Criteria `json:"associations,omitempty"`
+	Page         int                 `json:"page,omitempty"`
+	Limit        int                 `json:"limit,omitempty"`
+	Filter       []FilterCriteria    `json:"filter,omitempty"`
+	Sort         []SortCriteria      `json:"sort,omitempty"`
+	Associations map[string]Criteria `json:"associations,omitempty"`
 }
 
 type FilterCriteria struct {
 	Type       FilterType                 `json:"type"`
-	Field      field.Field                `json:"field"`
+	Field      string                     `json:"field"`
 	Parameters map[FilterParameter]string `json:"parameters"`
 }
 
@@ -39,9 +39,9 @@ const (
 )
 
 type SortCriteria struct {
-	Field          field.Field `json:"field"`
-	Order          SortOrder   `json:"order"`
-	NaturalSorting bool        `json:"naturalSorting"`
+	Field          string    `json:"field"`
+	Order          SortOrder `json:"order"`
+	NaturalSorting bool      `json:"naturalSorting"`
 }
 
 type SortOrder string

@@ -1,5 +1,8 @@
 package entity
 
+// own structs
+// refactor to shopware structs
+
 type ApiErrors struct {
 	Errors []ApiError `json:"errors,omitempty"`
 	Raw    string     `json:"raw,omitempty"`
