@@ -5,7 +5,7 @@ import "time"
 // completed
 
 type Salutation struct {
-	CreatedAt            time.Time            `json:"createdAt,omitempty"`
+	CreatedAt            *time.Time           `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField       `json:"customFields,omitempty"`
 	CustomerAddresses    *CustomerAddress     `json:"customerAddresses,omitempty"`
 	Customers            *Customer            `json:"customers,omitempty"`
@@ -17,5 +17,5 @@ type Salutation struct {
 	OrderCustomers       *OrderCustomer       `json:"orderCustomers,omitempty"`
 	SalutationKey        string               `json:"salutationKey,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

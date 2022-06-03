@@ -153,7 +153,7 @@ type OrderLineItem struct {
 	Children               *OrderLineItem         `json:"children,omitempty"`
 	Cover                  *Media                 `json:"cover,omitempty"`
 	CoverId                string                 `json:"coverId,omitempty"`
-	CreatedAt              time.Time              `json:"createdAt,omitempty"`
+	CreatedAt              *time.Time             `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField         `json:"customFields,omitempty"`
 	Description            string                 `json:"description,omitempty"`
 	Good                   bool                   `json:"good,omitempty"`
@@ -171,18 +171,18 @@ type OrderLineItem struct {
 	Position int `json:"position,omitempty"`
 	// Price map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"price,omitempty"`
 	// PriceDefinition map[type:object] `json:"priceDefinition,omitempty"`
-	Product          *Product  `json:"product,omitempty"`
-	ProductId        string    `json:"productId,omitempty"`
-	ProductVersionId string    `json:"productVersionId,omitempty"`
-	Quantity         int       `json:"quantity,omitempty"`
-	ReferencedId     string    `json:"referencedId,omitempty"`
-	Removable        bool      `json:"removable,omitempty"`
-	Stackable        bool      `json:"stackable,omitempty"`
-	TotalPrice       float64   `json:"totalPrice,omitempty"`
-	Type             string    `json:"type,omitempty"`
-	UnitPrice        float64   `json:"unitPrice,omitempty"`
-	UpdatedAt        time.Time `json:"updatedAt,omitempty"`
-	VersionId        string    `json:"versionId,omitempty"`
+	Product          *Product   `json:"product,omitempty"`
+	ProductId        string     `json:"productId,omitempty"`
+	ProductVersionId string     `json:"productVersionId,omitempty"`
+	Quantity         int        `json:"quantity,omitempty"`
+	ReferencedId     string     `json:"referencedId,omitempty"`
+	Removable        bool       `json:"removable,omitempty"`
+	Stackable        bool       `json:"stackable,omitempty"`
+	TotalPrice       float64    `json:"totalPrice,omitempty"`
+	Type             string     `json:"type,omitempty"`
+	UnitPrice        float64    `json:"unitPrice,omitempty"`
+	UpdatedAt        *time.Time `json:"updatedAt,omitempty"`
+	VersionId        string     `json:"versionId,omitempty"`
 }
 
 type OrderTag struct {
@@ -196,7 +196,7 @@ type OrderTag struct {
 
 type OrderTransaction struct {
 	// Amount map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"amount,omitempty"`
-	CreatedAt         time.Time          `json:"createdAt,omitempty"`
+	CreatedAt         *time.Time         `json:"createdAt,omitempty"`
 	CustomFields      *[]CustomField     `json:"customFields,omitempty"`
 	Id                string             `json:"id,omitempty"`
 	Order             *Order             `json:"order,omitempty"`
@@ -206,6 +206,6 @@ type OrderTransaction struct {
 	PaymentMethodId   string             `json:"paymentMethodId,omitempty"`
 	StateId           string             `json:"stateId,omitempty"`
 	StateMachineState *StateMachineState `json:"stateMachineState,omitempty"`
-	UpdatedAt         time.Time          `json:"updatedAt,omitempty"`
+	UpdatedAt         *time.Time         `json:"updatedAt,omitempty"`
 	VersionId         string             `json:"versionId,omitempty"`
 }

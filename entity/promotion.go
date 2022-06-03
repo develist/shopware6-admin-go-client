@@ -8,7 +8,7 @@ type Promotion struct {
 	Active              bool               `json:"active,omitempty"`
 	CartRules           *Rule              `json:"cartRules,omitempty"`
 	Code                string             `json:"code,omitempty"`
-	CreatedAt           time.Time          `json:"createdAt,omitempty"`
+	CreatedAt           *time.Time         `json:"createdAt,omitempty"`
 	CustomFields        *[]CustomField     `json:"customFields,omitempty"`
 	CustomerRestriction bool               `json:"customerRestriction,omitempty"`
 	Discounts           *PromotionDiscount `json:"discounts,omitempty"`
@@ -28,12 +28,12 @@ type Promotion struct {
 	SalesChannels    *PromotionSalesChannel `json:"salesChannels,omitempty"`
 	Setgroups        *PromotionSetgroup     `json:"setgroups,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt          time.Time `json:"updatedAt,omitempty"`
-	UseCodes           bool      `json:"useCodes,omitempty"`
-	UseIndividualCodes bool      `json:"useIndividualCodes,omitempty"`
-	UseSetGroups       bool      `json:"useSetGroups,omitempty"`
-	ValidFrom          time.Time `json:"validFrom,omitempty"`
-	ValidUntil         time.Time `json:"validUntil,omitempty"`
+	UpdatedAt          *time.Time `json:"updatedAt,omitempty"`
+	UseCodes           bool       `json:"useCodes,omitempty"`
+	UseIndividualCodes bool       `json:"useIndividualCodes,omitempty"`
+	UseSetGroups       bool       `json:"useSetGroups,omitempty"`
+	ValidFrom          *time.Time `json:"validFrom,omitempty"`
+	ValidUntil         *time.Time `json:"validUntil,omitempty"`
 }
 
 type PromotionCartRule struct {
@@ -47,7 +47,7 @@ type PromotionCartRule struct {
 type PromotionDiscount struct {
 	ApplierKey              string                   `json:"applierKey,omitempty"`
 	ConsiderAdvancedRules   bool                     `json:"considerAdvancedRules,omitempty"`
-	CreatedAt               time.Time                `json:"createdAt,omitempty"`
+	CreatedAt               *time.Time               `json:"createdAt,omitempty"`
 	DiscountRules           *Rule                    `json:"discountRules,omitempty"`
 	Id                      string                   `json:"id,omitempty"`
 	MaxValue                float64                  `json:"maxValue,omitempty"`
@@ -58,20 +58,20 @@ type PromotionDiscount struct {
 	Scope                   string                   `json:"scope,omitempty"`
 	SorterKey               string                   `json:"sorterKey,omitempty"`
 	Type                    string                   `json:"type,omitempty"`
-	UpdatedAt               time.Time                `json:"updatedAt,omitempty"`
+	UpdatedAt               *time.Time               `json:"updatedAt,omitempty"`
 	UsageKey                string                   `json:"usageKey,omitempty"`
 	Value                   float64                  `json:"value,omitempty"`
 }
 
 type PromotionDiscountPrices struct {
-	CreatedAt         time.Time          `json:"createdAt,omitempty"`
+	CreatedAt         *time.Time         `json:"createdAt,omitempty"`
 	Currency          *Currency          `json:"currency,omitempty"`
 	CurrencyId        string             `json:"currencyId,omitempty"`
 	DiscountId        string             `json:"discountId,omitempty"`
 	Id                string             `json:"id,omitempty"`
 	Price             float64            `json:"price,omitempty"`
 	PromotionDiscount *PromotionDiscount `json:"promotionDiscount,omitempty"`
-	UpdatedAt         time.Time          `json:"updatedAt,omitempty"`
+	UpdatedAt         *time.Time         `json:"updatedAt,omitempty"`
 }
 
 type PromotionDiscountRule struct {
@@ -83,13 +83,13 @@ type PromotionDiscountRule struct {
 }
 
 type PromotionIndividualCode struct {
-	Code      string    `json:"code,omitempty"`
-	CreatedAt time.Time `json:"createdAt,omitempty"`
-	Id        string    `json:"id,omitempty"`
+	Code      string     `json:"code,omitempty"`
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	Id        string     `json:"id,omitempty"`
 	// Payload map[type:object] `json:"payload,omitempty"`
 	Promotion   *Promotion `json:"promotion,omitempty"`
 	PromotionId string     `json:"promotionId,omitempty"`
-	UpdatedAt   time.Time  `json:"updatedAt,omitempty"`
+	UpdatedAt   *time.Time `json:"updatedAt,omitempty"`
 }
 
 type PromotionOrderRule struct {
@@ -117,25 +117,25 @@ type PromotionPersonaRule struct {
 }
 
 type PromotionSalesChannel struct {
-	CreatedAt      time.Time     `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time    `json:"createdAt,omitempty"`
 	Id             string        `json:"id,omitempty"`
 	Priority       int           `json:"priority,omitempty"`
 	Promotion      *Promotion    `json:"promotion,omitempty"`
 	PromotionId    string        `json:"promotionId,omitempty"`
 	SalesChannel   *SalesChannel `json:"salesChannel,omitempty"`
 	SalesChannelId string        `json:"salesChannelId,omitempty"`
-	UpdatedAt      time.Time     `json:"updatedAt,omitempty"`
+	UpdatedAt      *time.Time    `json:"updatedAt,omitempty"`
 }
 
 type PromotionSetgroup struct {
-	CreatedAt     time.Time  `json:"createdAt,omitempty"`
+	CreatedAt     *time.Time `json:"createdAt,omitempty"`
 	Id            string     `json:"id,omitempty"`
 	PackagerKey   string     `json:"packagerKey,omitempty"`
 	Promotion     *Promotion `json:"promotion,omitempty"`
 	PromotionId   string     `json:"promotionId,omitempty"`
 	SetGroupRules *Rule      `json:"setGroupRules,omitempty"`
 	SorterKey     string     `json:"sorterKey,omitempty"`
-	UpdatedAt     time.Time  `json:"updatedAt,omitempty"`
+	UpdatedAt     *time.Time `json:"updatedAt,omitempty"`
 	Value         float64    `json:"value,omitempty"`
 }
 

@@ -7,7 +7,7 @@ import "time"
 type Rule struct {
 	CartPromotions *Promotion     `json:"cartPromotions,omitempty"`
 	Conditions     *RuleCondition `json:"conditions,omitempty"`
-	CreatedAt      time.Time      `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField `json:"customFields,omitempty"`
 	Description    string         `json:"description,omitempty"`
 	EventActions   *EventAction   `json:"eventActions,omitempty"`
@@ -25,12 +25,12 @@ type Rule struct {
 	ShippingMethodPriceCalculations *ShippingMethodPrice `json:"shippingMethodPriceCalculations,omitempty"`
 	ShippingMethodPrices            *ShippingMethodPrice `json:"shippingMethodPrices,omitempty"`
 	ShippingMethods                 *ShippingMethod      `json:"shippingMethods,omitempty"`
-	UpdatedAt                       time.Time            `json:"updatedAt,omitempty"`
+	UpdatedAt                       *time.Time           `json:"updatedAt,omitempty"`
 }
 
 type RuleCondition struct {
 	Children     *RuleCondition `json:"children,omitempty"`
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Id           string         `json:"id,omitempty"`
 	Parent       *RuleCondition `json:"parent,omitempty"`
@@ -39,6 +39,6 @@ type RuleCondition struct {
 	Rule         *Rule          `json:"rule,omitempty"`
 	RuleId       string         `json:"ruleId,omitempty"`
 	Type         string         `json:"type,omitempty"`
-	UpdatedAt    time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt    *time.Time     `json:"updatedAt,omitempty"`
 	// Value map[type:object] `json:"value,omitempty"`
 }

@@ -25,7 +25,7 @@ type Product struct {
 	ConfiguratorSettings          *ProductConfiguratorSetting          `json:"configuratorSettings,omitempty"`
 	Cover                         *ProductMedia                        `json:"cover,omitempty"`
 	CoverId                       string                               `json:"coverId,omitempty"`
-	CreatedAt                     time.Time                            `json:"createdAt,omitempty"`
+	CreatedAt                     *time.Time                           `json:"createdAt,omitempty"`
 	CrossSellingAssignedProducts  *ProductCrossSellingAssignedProducts `json:"crossSellingAssignedProducts,omitempty"`
 	CrossSellings                 *ProductCrossSelling                 `json:"crossSellings,omitempty"`
 	CustomFieldSetSelectionActive bool                                 `json:"customFieldSetSelectionActive,omitempty"`
@@ -77,7 +77,7 @@ type Product struct {
 	PurchaseUnit   float64               `json:"purchaseUnit,omitempty"`
 	RatingAverage  float64               `json:"ratingAverage,omitempty"`
 	ReferenceUnit  float64               `json:"referenceUnit,omitempty"`
-	ReleaseDate    time.Time             `json:"releaseDate,omitempty"`
+	ReleaseDate    *time.Time            `json:"releaseDate,omitempty"`
 	RestockTime    int                   `json:"restockTime,omitempty"`
 	Sales          int                   `json:"sales,omitempty"`
 	SearchKeywords *ProductSearchKeyword `json:"searchKeywords,omitempty"`
@@ -91,9 +91,9 @@ type Product struct {
 	Tax   *Tax   `json:"tax,omitempty"`
 	TaxId string `json:"taxId,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Unit      *Unit     `json:"unit,omitempty"`
-	UnitId    string    `json:"unitId,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	Unit      *Unit      `json:"unit,omitempty"`
+	UnitId    string     `json:"unitId,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 	// VariantRestrictions map[type:object] `json:"variantRestrictions,omitempty"`
 	// Variation map[items:map[type:string] type:array] `json:"variation,omitempty"`
 	VersionId    string                   `json:"versionId,omitempty"`
@@ -124,7 +124,7 @@ type ProductCategoryTree struct {
 }
 
 type ProductConfiguratorSetting struct {
-	CreatedAt    time.Time            `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time           `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField       `json:"customFields,omitempty"`
 	Id           string               `json:"id,omitempty"`
 	Media        *Media               `json:"media,omitempty"`
@@ -133,17 +133,17 @@ type ProductConfiguratorSetting struct {
 	OptionId     string               `json:"optionId,omitempty"`
 	Position     int                  `json:"position,omitempty"`
 	// Price map[type:object] `json:"price,omitempty"`
-	Product          *Product  `json:"product,omitempty"`
-	ProductId        string    `json:"productId,omitempty"`
-	ProductVersionId string    `json:"productVersionId,omitempty"`
-	UpdatedAt        time.Time `json:"updatedAt,omitempty"`
-	VersionId        string    `json:"versionId,omitempty"`
+	Product          *Product   `json:"product,omitempty"`
+	ProductId        string     `json:"productId,omitempty"`
+	ProductVersionId string     `json:"productVersionId,omitempty"`
+	UpdatedAt        *time.Time `json:"updatedAt,omitempty"`
+	VersionId        string     `json:"versionId,omitempty"`
 }
 
 type ProductCrossSelling struct {
 	Active           bool                                 `json:"active,omitempty"`
 	AssignedProducts *ProductCrossSellingAssignedProducts `json:"assignedProducts,omitempty"`
-	CreatedAt        time.Time                            `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time                           `json:"createdAt,omitempty"`
 	Id               string                               `json:"id,omitempty"`
 	Limit            int                                  `json:"limit,omitempty"`
 	Name             string                               `json:"name,omitempty"`
@@ -156,12 +156,12 @@ type ProductCrossSelling struct {
 	SortBy           string                               `json:"sortBy,omitempty"`
 	SortDirection    string                               `json:"sortDirection,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Type      string    `json:"type,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	Type      string     `json:"type,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ProductCrossSellingAssignedProducts struct {
-	CreatedAt        time.Time            `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time           `json:"createdAt,omitempty"`
 	CrossSelling     *ProductCrossSelling `json:"crossSelling,omitempty"`
 	CrossSellingId   string               `json:"crossSellingId,omitempty"`
 	Id               string               `json:"id,omitempty"`
@@ -169,7 +169,7 @@ type ProductCrossSellingAssignedProducts struct {
 	Product          *Product             `json:"product,omitempty"`
 	ProductId        string               `json:"productId,omitempty"`
 	ProductVersionId string               `json:"productVersionId,omitempty"`
-	UpdatedAt        time.Time            `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time           `json:"updatedAt,omitempty"`
 }
 
 type ProductCustomFieldSet struct {
@@ -184,7 +184,7 @@ type ProductCustomFieldSet struct {
 type ProductExport struct {
 	AccessKey                string              `json:"accessKey,omitempty"`
 	BodyTemplate             string              `json:"bodyTemplate,omitempty"`
-	CreatedAt                time.Time           `json:"createdAt,omitempty"`
+	CreatedAt                *time.Time          `json:"createdAt,omitempty"`
 	Currency                 *Currency           `json:"currency,omitempty"`
 	CurrencyId               string              `json:"currencyId,omitempty"`
 	Encoding                 string              `json:"encoding,omitempty"`
@@ -192,7 +192,7 @@ type ProductExport struct {
 	FileName                 string              `json:"fileName,omitempty"`
 	FooterTemplate           string              `json:"footerTemplate,omitempty"`
 	GenerateByCronjob        bool                `json:"generateByCronjob,omitempty"`
-	GeneratedAt              time.Time           `json:"generatedAt,omitempty"`
+	GeneratedAt              *time.Time          `json:"generatedAt,omitempty"`
 	HeaderTemplate           string              `json:"headerTemplate,omitempty"`
 	Id                       string              `json:"id,omitempty"`
 	IncludeVariants          bool                `json:"includeVariants,omitempty"`
@@ -206,18 +206,18 @@ type ProductExport struct {
 	SalesChannelId           string              `json:"salesChannelId,omitempty"`
 	StorefrontSalesChannel   *SalesChannel       `json:"storefrontSalesChannel,omitempty"`
 	StorefrontSalesChannelId string              `json:"storefrontSalesChannelId,omitempty"`
-	UpdatedAt                time.Time           `json:"updatedAt,omitempty"`
+	UpdatedAt                *time.Time          `json:"updatedAt,omitempty"`
 }
 
 type ProductFeatureSet struct {
-	CreatedAt   time.Time `json:"createdAt,omitempty"`
-	Description string    `json:"description,omitempty"`
+	CreatedAt   *time.Time `json:"createdAt,omitempty"`
+	Description string     `json:"description,omitempty"`
 	// Features map[type:object] `json:"features,omitempty"`
 	Id       string   `json:"id,omitempty"`
 	Name     string   `json:"name,omitempty"`
 	Products *Product `json:"products,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ProductKeywordDictionary struct {
@@ -229,7 +229,7 @@ type ProductKeywordDictionary struct {
 }
 
 type ProductManufacturer struct {
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Description  string         `json:"description,omitempty"`
 	Id           string         `json:"id,omitempty"`
@@ -239,12 +239,12 @@ type ProductManufacturer struct {
 	Name         string         `json:"name,omitempty"`
 	Products     *Product       `json:"products,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
 }
 
 type ProductMedia struct {
-	CreatedAt        time.Time      `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time     `json:"createdAt,omitempty"`
 	CustomFields     *[]CustomField `json:"customFields,omitempty"`
 	Id               string         `json:"id,omitempty"`
 	Media            *Media         `json:"media,omitempty"`
@@ -253,7 +253,7 @@ type ProductMedia struct {
 	Product          *Product       `json:"product,omitempty"`
 	ProductId        string         `json:"productId,omitempty"`
 	ProductVersionId string         `json:"productVersionId,omitempty"`
-	UpdatedAt        time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time     `json:"updatedAt,omitempty"`
 	VersionId        string         `json:"versionId,omitempty"`
 }
 
@@ -267,19 +267,19 @@ type ProductOption struct {
 }
 
 type ProductPrice struct {
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Id           string         `json:"id,omitempty"`
 	// Price map[type:object] `json:"price,omitempty"`
-	Product          *Product  `json:"product,omitempty"`
-	ProductId        string    `json:"productId,omitempty"`
-	ProductVersionId string    `json:"productVersionId,omitempty"`
-	QuantityEnd      int       `json:"quantityEnd,omitempty"`
-	QuantityStart    int       `json:"quantityStart,omitempty"`
-	Rule             *Rule     `json:"rule,omitempty"`
-	RuleId           string    `json:"ruleId,omitempty"`
-	UpdatedAt        time.Time `json:"updatedAt,omitempty"`
-	VersionId        string    `json:"versionId,omitempty"`
+	Product          *Product   `json:"product,omitempty"`
+	ProductId        string     `json:"productId,omitempty"`
+	ProductVersionId string     `json:"productVersionId,omitempty"`
+	QuantityEnd      int        `json:"quantityEnd,omitempty"`
+	QuantityStart    int        `json:"quantityStart,omitempty"`
+	Rule             *Rule      `json:"rule,omitempty"`
+	RuleId           string     `json:"ruleId,omitempty"`
+	UpdatedAt        *time.Time `json:"updatedAt,omitempty"`
+	VersionId        string     `json:"versionId,omitempty"`
 }
 
 type ProductProperty struct {
@@ -293,7 +293,7 @@ type ProductProperty struct {
 type ProductReview struct {
 	Comment          string         `json:"comment,omitempty"`
 	Content          string         `json:"content,omitempty"`
-	CreatedAt        time.Time      `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time     `json:"createdAt,omitempty"`
 	CustomFields     *[]CustomField `json:"customFields,omitempty"`
 	Customer         *Customer      `json:"customer,omitempty"`
 	CustomerId       string         `json:"customerId,omitempty"`
@@ -310,23 +310,23 @@ type ProductReview struct {
 	SalesChannelId   string         `json:"salesChannelId,omitempty"`
 	Status           bool           `json:"status,omitempty"`
 	Title            string         `json:"title,omitempty"`
-	UpdatedAt        time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time     `json:"updatedAt,omitempty"`
 }
 
 type ProductSearchConfig struct {
 	AndLogic     bool                      `json:"andLogic,omitempty"`
 	ConfigFields *ProductSearchConfigField `json:"configFields,omitempty"`
-	CreatedAt    time.Time                 `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time                `json:"createdAt,omitempty"`
 	// ExcludedTerms map[items:map[type:string] type:array] `json:"excludedTerms,omitempty"`
-	Id              string    `json:"id,omitempty"`
-	Language        *Language `json:"language,omitempty"`
-	LanguageId      string    `json:"languageId,omitempty"`
-	MinSearchLength int       `json:"minSearchLength,omitempty"`
-	UpdatedAt       time.Time `json:"updatedAt,omitempty"`
+	Id              string     `json:"id,omitempty"`
+	Language        *Language  `json:"language,omitempty"`
+	LanguageId      string     `json:"languageId,omitempty"`
+	MinSearchLength int        `json:"minSearchLength,omitempty"`
+	UpdatedAt       *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ProductSearchConfigField struct {
-	CreatedAt      time.Time            `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time           `json:"createdAt,omitempty"`
 	CustomField    *CustomField         `json:"customField,omitempty"`
 	CustomFieldId  string               `json:"customFieldId,omitempty"`
 	Field          string               `json:"field,omitempty"`
@@ -336,26 +336,26 @@ type ProductSearchConfigField struct {
 	SearchConfigId string               `json:"searchConfigId,omitempty"`
 	Searchable     bool                 `json:"searchable,omitempty"`
 	Tokenize       bool                 `json:"tokenize,omitempty"`
-	UpdatedAt      time.Time            `json:"updatedAt,omitempty"`
+	UpdatedAt      *time.Time           `json:"updatedAt,omitempty"`
 }
 
 type ProductSearchKeyword struct {
-	CreatedAt        time.Time `json:"createdAt,omitempty"`
-	Id               string    `json:"id,omitempty"`
-	Keyword          string    `json:"keyword,omitempty"`
-	Language         *Language `json:"language,omitempty"`
-	LanguageId       string    `json:"languageId,omitempty"`
-	Product          *Product  `json:"product,omitempty"`
-	ProductId        string    `json:"productId,omitempty"`
-	ProductVersionId string    `json:"productVersionId,omitempty"`
-	Ranking          float64   `json:"ranking,omitempty"`
-	UpdatedAt        time.Time `json:"updatedAt,omitempty"`
-	VersionId        string    `json:"versionId,omitempty"`
+	CreatedAt        *time.Time `json:"createdAt,omitempty"`
+	Id               string     `json:"id,omitempty"`
+	Keyword          string     `json:"keyword,omitempty"`
+	Language         *Language  `json:"language,omitempty"`
+	LanguageId       string     `json:"languageId,omitempty"`
+	Product          *Product   `json:"product,omitempty"`
+	ProductId        string     `json:"productId,omitempty"`
+	ProductVersionId string     `json:"productVersionId,omitempty"`
+	Ranking          float64    `json:"ranking,omitempty"`
+	UpdatedAt        *time.Time `json:"updatedAt,omitempty"`
+	VersionId        string     `json:"versionId,omitempty"`
 }
 
 type ProductSorting struct {
-	Active    bool      `json:"active,omitempty"`
-	CreatedAt time.Time `json:"createdAt,omitempty"`
+	Active    bool       `json:"active,omitempty"`
+	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	// Fields map[type:object] `json:"fields,omitempty"`
 	Id       string `json:"id,omitempty"`
 	Key      string `json:"key,omitempty"`
@@ -363,13 +363,13 @@ type ProductSorting struct {
 	Locked   bool   `json:"locked,omitempty"`
 	Priority int    `json:"priority,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ProductStream struct {
 	// ApiFilter map[readOnly:true type:object] `json:"apiFilter,omitempty"`
 	Categories           *Category            `json:"categories,omitempty"`
-	CreatedAt            time.Time            `json:"createdAt,omitempty"`
+	CreatedAt            *time.Time           `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField       `json:"customFields,omitempty"`
 	Description          string               `json:"description,omitempty"`
 	Filters              *ProductStreamFilter `json:"filters,omitempty"`
@@ -379,11 +379,11 @@ type ProductStream struct {
 	ProductCrossSellings *ProductCrossSelling `json:"productCrossSellings,omitempty"`
 	ProductExports       *ProductExport       `json:"productExports,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ProductStreamFilter struct {
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Field        string         `json:"field,omitempty"`
 	Id           string         `json:"id,omitempty"`
@@ -396,7 +396,7 @@ type ProductStreamFilter struct {
 	ProductStreamId string               `json:"productStreamId,omitempty"`
 	Queries         *ProductStreamFilter `json:"queries,omitempty"`
 	Type            string               `json:"type,omitempty"`
-	UpdatedAt       time.Time            `json:"updatedAt,omitempty"`
+	UpdatedAt       *time.Time           `json:"updatedAt,omitempty"`
 	Value           string               `json:"value,omitempty"`
 }
 
@@ -419,13 +419,13 @@ type ProductTag struct {
 }
 
 type ProductVisibility struct {
-	CreatedAt        time.Time     `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time    `json:"createdAt,omitempty"`
 	Id               string        `json:"id,omitempty"`
 	Product          *Product      `json:"product,omitempty"`
 	ProductId        string        `json:"productId,omitempty"`
 	ProductVersionId string        `json:"productVersionId,omitempty"`
 	SalesChannel     *SalesChannel `json:"salesChannel,omitempty"`
 	SalesChannelId   string        `json:"salesChannelId,omitempty"`
-	UpdatedAt        time.Time     `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time    `json:"updatedAt,omitempty"`
 	Visibility       int           `json:"visibility,omitempty"`
 }

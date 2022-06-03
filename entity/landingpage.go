@@ -9,7 +9,7 @@ type LandingPage struct {
 	CmsPage          *CmsPage       `json:"cmsPage,omitempty"`
 	CmsPageId        string         `json:"cmsPageId,omitempty"`
 	CmsPageVersionId string         `json:"cmsPageVersionId,omitempty"`
-	CreatedAt        time.Time      `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time     `json:"createdAt,omitempty"`
 	CustomFields     *[]CustomField `json:"customFields,omitempty"`
 	Id               string         `json:"id,omitempty"`
 	Keywords         string         `json:"keywords,omitempty"`
@@ -21,9 +21,9 @@ type LandingPage struct {
 	// SlotConfig map[type:object] `json:"slotConfig,omitempty"`
 	Tags *Tag `json:"tags,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	Url       string    `json:"url,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Url       string     `json:"url,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
 }
 
 type LandingPageSalesChannel struct {

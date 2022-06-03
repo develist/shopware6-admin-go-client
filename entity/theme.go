@@ -10,7 +10,7 @@ type Theme struct {
 	// BaseConfig map[type:object] `json:"baseConfig,omitempty"`
 	ChildThemes *Theme `json:"childThemes,omitempty"`
 	// ConfigValues map[type:object] `json:"configValues,omitempty"`
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Description  string         `json:"description,omitempty"`
 	// HelpTexts map[type:object] `json:"helpTexts,omitempty"`
@@ -24,7 +24,7 @@ type Theme struct {
 	SalesChannels  *SalesChannel `json:"salesChannels,omitempty"`
 	TechnicalName  string        `json:"technicalName,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ThemeMedia struct {

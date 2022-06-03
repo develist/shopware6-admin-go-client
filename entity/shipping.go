@@ -8,7 +8,7 @@ type ShippingMethod struct {
 	Active                         bool                 `json:"active,omitempty"`
 	AvailabilityRule               *Rule                `json:"availabilityRule,omitempty"`
 	AvailabilityRuleId             string               `json:"availabilityRuleId,omitempty"`
-	CreatedAt                      time.Time            `json:"createdAt,omitempty"`
+	CreatedAt                      *time.Time           `json:"createdAt,omitempty"`
 	CustomFields                   *[]CustomField       `json:"customFields,omitempty"`
 	DeliveryTime                   *DeliveryTime        `json:"deliveryTime,omitempty"`
 	DeliveryTimeId                 string               `json:"deliveryTimeId,omitempty"`
@@ -27,14 +27,14 @@ type ShippingMethod struct {
 	TaxType                        string               `json:"taxType,omitempty"`
 	TrackingUrl                    string               `json:"trackingUrl,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type ShippingMethodPrice struct {
-	Calculation       int       `json:"calculation,omitempty"`
-	CalculationRule   *Rule     `json:"calculationRule,omitempty"`
-	CalculationRuleId string    `json:"calculationRuleId,omitempty"`
-	CreatedAt         time.Time `json:"createdAt,omitempty"`
+	Calculation       int        `json:"calculation,omitempty"`
+	CalculationRule   *Rule      `json:"calculationRule,omitempty"`
+	CalculationRuleId string     `json:"calculationRuleId,omitempty"`
+	CreatedAt         *time.Time `json:"createdAt,omitempty"`
 	// CurrencyPrice map[type:object] `json:"currencyPrice,omitempty"`
 	CustomFields     *[]CustomField  `json:"customFields,omitempty"`
 	Id               string          `json:"id,omitempty"`
@@ -44,7 +44,7 @@ type ShippingMethodPrice struct {
 	RuleId           string          `json:"ruleId,omitempty"`
 	ShippingMethod   *ShippingMethod `json:"shippingMethod,omitempty"`
 	ShippingMethodId string          `json:"shippingMethodId,omitempty"`
-	UpdatedAt        time.Time       `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time      `json:"updatedAt,omitempty"`
 }
 
 type ShippingMethodTag struct {

@@ -10,7 +10,7 @@ type PaymentMethod struct {
 	AppPaymentMethod               *AppPaymentMethod `json:"appPaymentMethod,omitempty"`
 	AvailabilityRule               *Rule             `json:"availabilityRule,omitempty"`
 	AvailabilityRuleId             string            `json:"availabilityRuleId,omitempty"`
-	CreatedAt                      time.Time         `json:"createdAt,omitempty"`
+	CreatedAt                      *time.Time        `json:"createdAt,omitempty"`
 	CustomFields                   *[]CustomField    `json:"customFields,omitempty"`
 	Customers                      *Customer         `json:"customers,omitempty"`
 	Description                    string            `json:"description,omitempty"`
@@ -27,5 +27,5 @@ type PaymentMethod struct {
 	SalesChannelDefaultAssignments *SalesChannel     `json:"salesChannelDefaultAssignments,omitempty"`
 	SalesChannels                  *SalesChannel     `json:"salesChannels,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

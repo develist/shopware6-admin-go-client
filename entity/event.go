@@ -8,14 +8,14 @@ type EventAction struct {
 	ActionName string `json:"actionName,omitempty"`
 	Active     bool   `json:"active,omitempty"`
 	// Config map[type:object] `json:"config,omitempty"`
-	CreatedAt     time.Time      `json:"createdAt,omitempty"`
+	CreatedAt     *time.Time     `json:"createdAt,omitempty"`
 	CustomFields  *[]CustomField `json:"customFields,omitempty"`
 	EventName     string         `json:"eventName,omitempty"`
 	Id            string         `json:"id,omitempty"`
 	Rules         *Rule          `json:"rules,omitempty"`
 	SalesChannels *SalesChannel  `json:"salesChannels,omitempty"`
 	Title         string         `json:"title,omitempty"`
-	UpdatedAt     time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt     *time.Time     `json:"updatedAt,omitempty"`
 }
 type EventActionRule struct {
 	EventAction   *EventAction `json:"eventAction,omitempty"`

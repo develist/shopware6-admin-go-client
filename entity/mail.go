@@ -5,7 +5,7 @@ import "time"
 // completed
 
 type MailHeaderFooter struct {
-	CreatedAt     time.Time     `json:"createdAt,omitempty"`
+	CreatedAt     *time.Time    `json:"createdAt,omitempty"`
 	Description   string        `json:"description,omitempty"`
 	FooterHtml    string        `json:"footerHtml,omitempty"`
 	FooterPlain   string        `json:"footerPlain,omitempty"`
@@ -16,13 +16,13 @@ type MailHeaderFooter struct {
 	SalesChannels *SalesChannel `json:"salesChannels,omitempty"`
 	SystemDefault bool          `json:"systemDefault,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type MailTemplate struct {
 	ContentHtml        string             `json:"contentHtml,omitempty"`
 	ContentPlain       string             `json:"contentPlain,omitempty"`
-	CreatedAt          time.Time          `json:"createdAt,omitempty"`
+	CreatedAt          *time.Time         `json:"createdAt,omitempty"`
 	CustomFields       *[]CustomField     `json:"customFields,omitempty"`
 	Description        string             `json:"description,omitempty"`
 	Id                 string             `json:"id,omitempty"`
@@ -33,7 +33,7 @@ type MailTemplate struct {
 	Subject            string             `json:"subject,omitempty"`
 	SystemDefault      bool               `json:"systemDefault,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type MailTemplateMedia struct {
@@ -48,7 +48,7 @@ type MailTemplateMedia struct {
 
 type MailTemplateType struct {
 	// AvailableEntities map[type:object] `json:"availableEntities,omitempty"`
-	CreatedAt     time.Time      `json:"createdAt,omitempty"`
+	CreatedAt     *time.Time     `json:"createdAt,omitempty"`
 	CustomFields  *[]CustomField `json:"customFields,omitempty"`
 	Id            string         `json:"id,omitempty"`
 	MailTemplates *MailTemplate  `json:"mailTemplates,omitempty"`
@@ -56,5 +56,5 @@ type MailTemplateType struct {
 	TechnicalName string         `json:"technicalName,omitempty"`
 	// TemplateData map[type:object] `json:"templateData,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

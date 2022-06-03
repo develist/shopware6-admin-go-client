@@ -14,7 +14,7 @@ type SalesChannel struct {
 	Countries                       *Country                        `json:"countries,omitempty"`
 	Country                         *Country                        `json:"country,omitempty"`
 	CountryId                       string                          `json:"countryId,omitempty"`
-	CreatedAt                       time.Time                       `json:"createdAt,omitempty"`
+	CreatedAt                       *time.Time                      `json:"createdAt,omitempty"`
 	Currencies                      *Currency                       `json:"currencies,omitempty"`
 	Currency                        *Currency                       `json:"currency,omitempty"`
 	CurrencyId                      string                          `json:"currencyId,omitempty"`
@@ -81,19 +81,19 @@ type SalesChannel struct {
 	// Translated map[type:object] `json:"translated,omitempty"`
 	Type      *SalesChannelType `json:"type,omitempty"`
 	TypeId    string            `json:"typeId,omitempty"`
-	UpdatedAt time.Time         `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time        `json:"updatedAt,omitempty"`
 	Wishlists *CustomerWishlist `json:"wishlists,omitempty"`
 }
 
 type SalesChannelAnalytics struct {
 	Active       bool          `json:"active,omitempty"`
 	AnonymizeIp  bool          `json:"anonymizeIp,omitempty"`
-	CreatedAt    time.Time     `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time    `json:"createdAt,omitempty"`
 	Id           string        `json:"id,omitempty"`
 	SalesChannel *SalesChannel `json:"salesChannel,omitempty"`
 	TrackOrders  bool          `json:"trackOrders,omitempty"`
 	TrackingId   string        `json:"trackingId,omitempty"`
-	UpdatedAt    time.Time     `json:"updatedAt,omitempty"`
+	UpdatedAt    *time.Time    `json:"updatedAt,omitempty"`
 }
 
 type SalesChannelCountry struct {
@@ -113,7 +113,7 @@ type SalesChannelCurrency struct {
 }
 
 type SalesChannelDomain struct {
-	CreatedAt                   time.Time      `json:"createdAt,omitempty"`
+	CreatedAt                   *time.Time     `json:"createdAt,omitempty"`
 	Currency                    *Currency      `json:"currency,omitempty"`
 	CurrencyId                  string         `json:"currencyId,omitempty"`
 	CustomFields                *[]CustomField `json:"customFields,omitempty"`
@@ -127,7 +127,7 @@ type SalesChannelDomain struct {
 	SalesChannelId              string         `json:"salesChannelId,omitempty"`
 	SnippetSet                  *SnippetSet    `json:"snippetSet,omitempty"`
 	SnippetSetId                string         `json:"snippetSetId,omitempty"`
-	UpdatedAt                   time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt                   *time.Time     `json:"updatedAt,omitempty"`
 	Url                         string         `json:"url,omitempty"`
 }
 
@@ -157,7 +157,7 @@ type SalesChannelShippingMethod struct {
 
 type SalesChannelType struct {
 	CoverUrl        string         `json:"coverUrl,omitempty"`
-	CreatedAt       time.Time      `json:"createdAt,omitempty"`
+	CreatedAt       *time.Time     `json:"createdAt,omitempty"`
 	CustomFields    *[]CustomField `json:"customFields,omitempty"`
 	Description     string         `json:"description,omitempty"`
 	DescriptionLong string         `json:"descriptionLong,omitempty"`
@@ -168,5 +168,5 @@ type SalesChannelType struct {
 	SalesChannels   *SalesChannel  `json:"salesChannels,omitempty"`
 	// ScreenshotUrls map[items:map[type:string] type:array] `json:"screenshotUrls,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

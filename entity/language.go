@@ -6,7 +6,7 @@ import "time"
 
 type Language struct {
 	Children                       *Language                 `json:"children,omitempty"`
-	CreatedAt                      time.Time                 `json:"createdAt,omitempty"`
+	CreatedAt                      *time.Time                `json:"createdAt,omitempty"`
 	CustomFields                   *[]CustomField            `json:"customFields,omitempty"`
 	Customers                      *Customer                 `json:"customers,omitempty"`
 	Id                             string                    `json:"id,omitempty"`
@@ -26,5 +26,5 @@ type Language struct {
 	SalesChannels                  *SalesChannel             `json:"salesChannels,omitempty"`
 	TranslationCode                *Locale                   `json:"translationCode,omitempty"`
 	TranslationCodeId              string                    `json:"translationCodeId,omitempty"`
-	UpdatedAt                      time.Time                 `json:"updatedAt,omitempty"`
+	UpdatedAt                      *time.Time                `json:"updatedAt,omitempty"`
 }

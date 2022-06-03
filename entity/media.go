@@ -12,7 +12,7 @@ type Media struct {
 	CmsBlocks           *CmsBlock           `json:"cmsBlocks,omitempty"`
 	CmsPages            *CmsPage            `json:"cmsPages,omitempty"`
 	CmsSections         *CmsSection         `json:"cmsSections,omitempty"`
-	CreatedAt           time.Time           `json:"createdAt,omitempty"`
+	CreatedAt           *time.Time          `json:"createdAt,omitempty"`
 	CustomFields        *[]CustomField      `json:"customFields,omitempty"`
 	DocumentBaseConfigs *DocumentBaseConfig `json:"documentBaseConfigs,omitempty"`
 	Documents           *Document           `json:"documents,omitempty"`
@@ -39,21 +39,21 @@ type Media struct {
 	Thumbnails                  *MediaThumbnail             `json:"thumbnails,omitempty"`
 	Title                       string                      `json:"title,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt  time.Time `json:"updatedAt,omitempty"`
-	UploadedAt time.Time `json:"uploadedAt,omitempty"`
-	Url        string    `json:"url,omitempty"`
-	User       *User     `json:"user,omitempty"`
-	UserId     string    `json:"userId,omitempty"`
+	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
+	UploadedAt *time.Time `json:"uploadedAt,omitempty"`
+	Url        string     `json:"url,omitempty"`
+	User       *User      `json:"user,omitempty"`
+	UserId     string     `json:"userId,omitempty"`
 }
 
 type MediaDefaultFolder struct {
 	// AssociationFields map[items:map[type:string] type:array] `json:"associationFields,omitempty"`
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Entity       string         `json:"entity,omitempty"`
 	Folder       *MediaFolder   `json:"folder,omitempty"`
 	Id           string         `json:"id,omitempty"`
-	UpdatedAt    time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt    *time.Time     `json:"updatedAt,omitempty"`
 }
 
 type MediaFolder struct {
@@ -61,7 +61,7 @@ type MediaFolder struct {
 	Children               *MediaFolder              `json:"children,omitempty"`
 	Configuration          *MediaFolderConfiguration `json:"configuration,omitempty"`
 	ConfigurationId        string                    `json:"configurationId,omitempty"`
-	CreatedAt              time.Time                 `json:"createdAt,omitempty"`
+	CreatedAt              *time.Time                `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField            `json:"customFields,omitempty"`
 	DefaultFolder          *MediaDefaultFolder       `json:"defaultFolder,omitempty"`
 	DefaultFolderId        string                    `json:"defaultFolderId,omitempty"`
@@ -70,13 +70,13 @@ type MediaFolder struct {
 	Name                   string                    `json:"name,omitempty"`
 	Parent                 *MediaFolder              `json:"parent,omitempty"`
 	ParentId               string                    `json:"parentId,omitempty"`
-	UpdatedAt              time.Time                 `json:"updatedAt,omitempty"`
+	UpdatedAt              *time.Time                `json:"updatedAt,omitempty"`
 	UseParentConfiguration bool                      `json:"useParentConfiguration,omitempty"`
 }
 
 type MediaFolderConfiguration struct {
 	CreateThumbnails    bool                `json:"createThumbnails,omitempty"`
-	CreatedAt           time.Time           `json:"createdAt,omitempty"`
+	CreatedAt           *time.Time          `json:"createdAt,omitempty"`
 	CustomFields        *[]CustomField      `json:"customFields,omitempty"`
 	Id                  string              `json:"id,omitempty"`
 	KeepAspectRatio     bool                `json:"keepAspectRatio,omitempty"`
@@ -85,7 +85,7 @@ type MediaFolderConfiguration struct {
 	NoAssociation       bool                `json:"noAssociation,omitempty"`
 	Private             bool                `json:"private,omitempty"`
 	ThumbnailQuality    int                 `json:"thumbnailQuality,omitempty"`
-	UpdatedAt           time.Time           `json:"updatedAt,omitempty"`
+	UpdatedAt           *time.Time          `json:"updatedAt,omitempty"`
 }
 
 type MediaFolderConfigurationMediaThumbnailSize struct {
@@ -105,23 +105,23 @@ type MediaTag struct {
 }
 
 type MediaThumbnail struct {
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	Height       int            `json:"height,omitempty"`
 	Id           string         `json:"id,omitempty"`
 	Media        *Media         `json:"media,omitempty"`
 	MediaId      string         `json:"mediaId,omitempty"`
-	UpdatedAt    time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt    *time.Time     `json:"updatedAt,omitempty"`
 	Url          string         `json:"url,omitempty"`
 	Width        int            `json:"width,omitempty"`
 }
 
 type MediaThumbnailSize struct {
-	CreatedAt                 time.Time                 `json:"createdAt,omitempty"`
+	CreatedAt                 *time.Time                `json:"createdAt,omitempty"`
 	CustomFields              *[]CustomField            `json:"customFields,omitempty"`
 	Height                    int                       `json:"height,omitempty"`
 	Id                        string                    `json:"id,omitempty"`
 	MediaFolderConfigurations *MediaFolderConfiguration `json:"mediaFolderConfigurations,omitempty"`
-	UpdatedAt                 time.Time                 `json:"updatedAt,omitempty"`
+	UpdatedAt                 *time.Time                `json:"updatedAt,omitempty"`
 	Width                     int                       `json:"width,omitempty"`
 }
