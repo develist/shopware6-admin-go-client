@@ -6,7 +6,7 @@ import "time"
 
 type Document struct {
 	// Config map[type:object] `json:"config,omitempty"`
-	CreatedAt            time.Time      `json:"createdAt,omitempty"`
+	CreatedAt            *time.Time     `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField `json:"customFields,omitempty"`
 	DeepLinkCode         string         `json:"deepLinkCode,omitempty"`
 	DependentDocuments   *Document      `json:"dependentDocuments,omitempty"`
@@ -23,12 +23,12 @@ type Document struct {
 	ReferencedDocumentId string         `json:"referencedDocumentId,omitempty"`
 	Sent                 bool           `json:"sent,omitempty"`
 	Static               bool           `json:"static,omitempty"`
-	UpdatedAt            time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt            *time.Time     `json:"updatedAt,omitempty"`
 }
 
 type DocumentBaseConfig struct {
 	// Config map[type:object] `json:"config,omitempty"`
-	CreatedAt      time.Time                       `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time                      `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField                  `json:"customFields,omitempty"`
 	DocumentNumber string                          `json:"documentNumber,omitempty"`
 	DocumentType   *DocumentType                   `json:"documentType,omitempty"`
@@ -41,11 +41,11 @@ type DocumentBaseConfig struct {
 	LogoId         string                          `json:"logoId,omitempty"`
 	Name           string                          `json:"name,omitempty"`
 	SalesChannels  *DocumentBaseConfigSalesChannel `json:"salesChannels,omitempty"`
-	UpdatedAt      time.Time                       `json:"updatedAt,omitempty"`
+	UpdatedAt      *time.Time                      `json:"updatedAt,omitempty"`
 }
 
 type DocumentBaseConfigSalesChannel struct {
-	CreatedAt            time.Time           `json:"createdAt,omitempty"`
+	CreatedAt            *time.Time          `json:"createdAt,omitempty"`
 	DocumentBaseConfig   *DocumentBaseConfig `json:"documentBaseConfig,omitempty"`
 	DocumentBaseConfigId string              `json:"documentBaseConfigId,omitempty"`
 	DocumentType         *DocumentType       `json:"documentType,omitempty"`
@@ -53,11 +53,11 @@ type DocumentBaseConfigSalesChannel struct {
 	Id                   string              `json:"id,omitempty"`
 	SalesChannel         *SalesChannel       `json:"salesChannel,omitempty"`
 	SalesChannelId       string              `json:"salesChannelId,omitempty"`
-	UpdatedAt            time.Time           `json:"updatedAt,omitempty"`
+	UpdatedAt            *time.Time          `json:"updatedAt,omitempty"`
 }
 
 type DocumentType struct {
-	CreatedAt                       time.Time                       `json:"createdAt,omitempty"`
+	CreatedAt                       *time.Time                      `json:"createdAt,omitempty"`
 	CustomFields                    *[]CustomField                  `json:"customFields,omitempty"`
 	DocumentBaseConfigSalesChannels *DocumentBaseConfigSalesChannel `json:"documentBaseConfigSalesChannels,omitempty"`
 	DocumentBaseConfigs             *DocumentBaseConfig             `json:"documentBaseConfigs,omitempty"`
@@ -66,5 +66,5 @@ type DocumentType struct {
 	Name                            string                          `json:"name,omitempty"`
 	TechnicalName                   string                          `json:"technicalName,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

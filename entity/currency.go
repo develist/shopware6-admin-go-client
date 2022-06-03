@@ -6,7 +6,7 @@ import "time"
 
 type Currency struct {
 	CountryRoundings *CurrencyCountryRounding `json:"countryRoundings,omitempty"`
-	CreatedAt        time.Time                `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time               `json:"createdAt,omitempty"`
 	CustomFields     *[]CustomField           `json:"customFields,omitempty"`
 	Factor           float64                  `json:"factor,omitempty"`
 	Id               string                   `json:"id,omitempty"`
@@ -25,17 +25,17 @@ type Currency struct {
 	Symbol                         string                   `json:"symbol,omitempty"`
 	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type CurrencyCountryRounding struct {
-	Country    *Country  `json:"country,omitempty"`
-	CountryId  string    `json:"countryId,omitempty"`
-	CreatedAt  time.Time `json:"createdAt,omitempty"`
-	Currency   *Currency `json:"currency,omitempty"`
-	CurrencyId string    `json:"currencyId,omitempty"`
-	Id         string    `json:"id,omitempty"`
+	Country    *Country   `json:"country,omitempty"`
+	CountryId  string     `json:"countryId,omitempty"`
+	CreatedAt  *time.Time `json:"createdAt,omitempty"`
+	Currency   *Currency  `json:"currency,omitempty"`
+	CurrencyId string     `json:"currencyId,omitempty"`
+	Id         string     `json:"id,omitempty"`
 	// ItemRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"itemRounding,omitempty"`
 	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

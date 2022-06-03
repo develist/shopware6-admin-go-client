@@ -5,7 +5,7 @@ import "time"
 // completed
 
 type DeliveryTime struct {
-	CreatedAt       time.Time       `json:"createdAt,omitempty"`
+	CreatedAt       *time.Time      `json:"createdAt,omitempty"`
 	CustomFields    *[]CustomField  `json:"customFields,omitempty"`
 	Id              string          `json:"id,omitempty"`
 	Max             int             `json:"max,omitempty"`
@@ -14,6 +14,6 @@ type DeliveryTime struct {
 	Products        *Product        `json:"products,omitempty"`
 	ShippingMethods *ShippingMethod `json:"shippingMethods,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Unit      string    `json:"unit,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	Unit      string     `json:"unit,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

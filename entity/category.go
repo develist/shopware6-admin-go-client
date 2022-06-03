@@ -15,7 +15,7 @@ type Category struct {
 	CmsPage                 *CmsPage       `json:"cmsPage,omitempty"`
 	CmsPageId               string         `json:"cmsPageId,omitempty"`
 	CmsPageVersionId        string         `json:"cmsPageVersionId,omitempty"`
-	CreatedAt               time.Time      `json:"createdAt,omitempty"`
+	CreatedAt               *time.Time     `json:"createdAt,omitempty"`
 	CustomFields            *[]CustomField `json:"customFields,omitempty"`
 	Description             string         `json:"description,omitempty"`
 	DisplayNestedProducts   bool           `json:"displayNestedProducts,omitempty"`
@@ -48,10 +48,10 @@ type Category struct {
 	// SlotConfig map[type:object] `json:"slotConfig,omitempty"`
 	Tags *Tag `json:"tags,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Type      string    `json:"type,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
-	Visible   bool      `json:"visible,omitempty"`
+	Type      string     `json:"type,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
+	Visible   bool       `json:"visible,omitempty"`
 }
 
 type CategoryTag struct {
@@ -67,12 +67,12 @@ type MainCategory struct {
 	Category          *Category     `json:"category,omitempty"`
 	CategoryId        string        `json:"categoryId,omitempty"`
 	CategoryVersionId string        `json:"categoryVersionId,omitempty"`
-	CreatedAt         time.Time     `json:"createdAt,omitempty"`
+	CreatedAt         *time.Time    `json:"createdAt,omitempty"`
 	Id                string        `json:"id,omitempty"`
 	Product           *Product      `json:"product,omitempty"`
 	ProductId         string        `json:"productId,omitempty"`
 	ProductVersionId  string        `json:"productVersionId,omitempty"`
 	SalesChannel      *SalesChannel `json:"salesChannel,omitempty"`
 	SalesChannelId    string        `json:"salesChannelId,omitempty"`
-	UpdatedAt         time.Time     `json:"updatedAt,omitempty"`
+	UpdatedAt         *time.Time    `json:"updatedAt,omitempty"`
 }

@@ -14,7 +14,7 @@ type Customer struct {
 	BoundSalesChannelId      string            `json:"boundSalesChannelId,omitempty"`
 	CampaignCode             string            `json:"campaignCode,omitempty"`
 	Company                  string            `json:"company,omitempty"`
-	CreatedAt                time.Time         `json:"createdAt,omitempty"`
+	CreatedAt                *time.Time        `json:"createdAt,omitempty"`
 	CustomFields             *[]CustomField    `json:"customFields,omitempty"`
 	CustomerNumber           string            `json:"customerNumber,omitempty"`
 	DefaultBillingAddress    *CustomerAddress  `json:"defaultBillingAddress,omitempty"`
@@ -23,11 +23,11 @@ type Customer struct {
 	DefaultPaymentMethodId   string            `json:"defaultPaymentMethodId,omitempty"`
 	DefaultShippingAddress   *CustomerAddress  `json:"defaultShippingAddress,omitempty"`
 	DefaultShippingAddressId string            `json:"defaultShippingAddressId,omitempty"`
-	DoubleOptInConfirmDate   time.Time         `json:"doubleOptInConfirmDate,omitempty"`
-	DoubleOptInEmailSentDate time.Time         `json:"doubleOptInEmailSentDate,omitempty"`
+	DoubleOptInConfirmDate   *time.Time        `json:"doubleOptInConfirmDate,omitempty"`
+	DoubleOptInEmailSentDate *time.Time        `json:"doubleOptInEmailSentDate,omitempty"`
 	DoubleOptInRegistration  bool              `json:"doubleOptInRegistration,omitempty"`
 	Email                    string            `json:"email,omitempty"`
-	FirstLogin               time.Time         `json:"firstLogin,omitempty"`
+	FirstLogin               *time.Time        `json:"firstLogin,omitempty"`
 	FirstName                string            `json:"firstName,omitempty"`
 	Group                    *CustomerGroup    `json:"group,omitempty"`
 	GroupId                  string            `json:"groupId,omitempty"`
@@ -36,9 +36,9 @@ type Customer struct {
 	Id                       string            `json:"id,omitempty"`
 	Language                 *Language         `json:"language,omitempty"`
 	LanguageId               string            `json:"languageId,omitempty"`
-	LastLogin                time.Time         `json:"lastLogin,omitempty"`
+	LastLogin                *time.Time        `json:"lastLogin,omitempty"`
 	LastName                 string            `json:"lastName,omitempty"`
-	LastOrderDate            time.Time         `json:"lastOrderDate,omitempty"`
+	LastOrderDate            *time.Time        `json:"lastOrderDate,omitempty"`
 	LastPaymentMethod        *PaymentMethod    `json:"lastPaymentMethod,omitempty"`
 	LastPaymentMethodId      string            `json:"lastPaymentMethodId,omitempty"`
 	Newsletter               bool              `json:"newsletter,omitempty"`
@@ -55,9 +55,9 @@ type Customer struct {
 	Salutation               *Salutation       `json:"salutation,omitempty"`
 	SalutationId             string            `json:"salutationId,omitempty"`
 	// TagIds map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array] `json:"tagIds,omitempty"`
-	Tags      *Tag      `json:"tags,omitempty"`
-	Title     string    `json:"title,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	Tags      *Tag       `json:"tags,omitempty"`
+	Title     string     `json:"title,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 	// VatIds map[items:map[type:string] type:array] `json:"vatIds,omitempty"`
 	Wishlists *CustomerWishlist `json:"wishlists,omitempty"`
 }
@@ -71,7 +71,7 @@ type CustomerAddress struct {
 	CountryId              string         `json:"countryId,omitempty"`
 	CountryState           *CountryState  `json:"countryState,omitempty"`
 	CountryStateId         string         `json:"countryStateId,omitempty"`
-	CreatedAt              time.Time      `json:"createdAt,omitempty"`
+	CreatedAt              *time.Time     `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField `json:"customFields,omitempty"`
 	Customer               *Customer      `json:"customer,omitempty"`
 	CustomerId             string         `json:"customerId,omitempty"`
@@ -84,12 +84,12 @@ type CustomerAddress struct {
 	SalutationId           string         `json:"salutationId,omitempty"`
 	Street                 string         `json:"street,omitempty"`
 	Title                  string         `json:"title,omitempty"`
-	UpdatedAt              time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt              *time.Time     `json:"updatedAt,omitempty"`
 	Zipcode                string         `json:"zipcode,omitempty"`
 }
 
 type CustomerGroup struct {
-	CreatedAt                           time.Time      `json:"createdAt,omitempty"`
+	CreatedAt                           *time.Time     `json:"createdAt,omitempty"`
 	CustomFields                        *[]CustomField `json:"customFields,omitempty"`
 	Customers                           *Customer      `json:"customers,omitempty"`
 	DisplayGross                        bool           `json:"displayGross,omitempty"`
@@ -103,11 +103,11 @@ type CustomerGroup struct {
 	RegistrationTitle                   string         `json:"registrationTitle,omitempty"`
 	SalesChannels                       *SalesChannel  `json:"salesChannels,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
 type CustomerGroupRegistrationSalesChannels struct {
-	CreatedAt       time.Time      `json:"createdAt,omitempty"`
+	CreatedAt       *time.Time     `json:"createdAt,omitempty"`
 	CustomerGroup   *CustomerGroup `json:"customerGroup,omitempty"`
 	CustomerGroupId string         `json:"customerGroupId,omitempty"`
 	Id              string         `json:"id,omitempty"`
@@ -116,12 +116,12 @@ type CustomerGroupRegistrationSalesChannels struct {
 }
 
 type CustomerRecovery struct {
-	CreatedAt  time.Time `json:"createdAt,omitempty"`
-	Customer   *Customer `json:"customer,omitempty"`
-	CustomerId string    `json:"customerId,omitempty"`
-	Hash       string    `json:"hash,omitempty"`
-	Id         string    `json:"id,omitempty"`
-	UpdatedAt  time.Time `json:"updatedAt,omitempty"`
+	CreatedAt  *time.Time `json:"createdAt,omitempty"`
+	Customer   *Customer  `json:"customer,omitempty"`
+	CustomerId string     `json:"customerId,omitempty"`
+	Hash       string     `json:"hash,omitempty"`
+	Id         string     `json:"id,omitempty"`
+	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
 }
 
 type CustomerTag struct {
@@ -133,7 +133,7 @@ type CustomerTag struct {
 }
 
 type CustomerWishlist struct {
-	CreatedAt      time.Time                `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time               `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField           `json:"customFields,omitempty"`
 	Customer       *Customer                `json:"customer,omitempty"`
 	CustomerId     string                   `json:"customerId,omitempty"`
@@ -141,16 +141,16 @@ type CustomerWishlist struct {
 	Products       *CustomerWishlistProduct `json:"products,omitempty"`
 	SalesChannel   *SalesChannel            `json:"salesChannel,omitempty"`
 	SalesChannelId string                   `json:"salesChannelId,omitempty"`
-	UpdatedAt      time.Time                `json:"updatedAt,omitempty"`
+	UpdatedAt      *time.Time               `json:"updatedAt,omitempty"`
 }
 
 type CustomerWishlistProduct struct {
-	CreatedAt        time.Time         `json:"createdAt,omitempty"`
+	CreatedAt        *time.Time        `json:"createdAt,omitempty"`
 	Id               string            `json:"id,omitempty"`
 	Product          *Product          `json:"product,omitempty"`
 	ProductId        string            `json:"productId,omitempty"`
 	ProductVersionId string            `json:"productVersionId,omitempty"`
-	UpdatedAt        time.Time         `json:"updatedAt,omitempty"`
+	UpdatedAt        *time.Time        `json:"updatedAt,omitempty"`
 	Wishlist         *CustomerWishlist `json:"wishlist,omitempty"`
 	WishlistId       string            `json:"wishlistId,omitempty"`
 }

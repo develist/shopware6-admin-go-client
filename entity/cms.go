@@ -26,14 +26,14 @@ type CmsBlock struct {
 	SectionPosition     string         `json:"sectionPosition,omitempty"`
 	Slots               *CmsSlot       `json:"slots,omitempty"`
 	Type                string         `json:"type,omitempty"`
-	UpdatedAt           time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt           *time.Time     `json:"updatedAt,omitempty"`
 	VersionId           string         `json:"versionId,omitempty"`
 }
 
 type CmsPage struct {
 	Categories *Category `json:"categories,omitempty"`
 	// Config map[properties:map[backgroundColor:map[type:string]] type:object] `json:"config,omitempty"`
-	CreatedAt         time.Time      `json:"createdAt,omitempty"`
+	CreatedAt         *time.Time     `json:"createdAt,omitempty"`
 	CustomFields      *[]CustomField `json:"customFields,omitempty"`
 	Entity            string         `json:"entity,omitempty"`
 	HomeSalesChannels *SalesChannel  `json:"homeSalesChannels,omitempty"`
@@ -46,9 +46,9 @@ type CmsPage struct {
 	Products          *Product       `json:"products,omitempty"`
 	Sections          *CmsSection    `json:"sections,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Type      string    `json:"type,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
+	Type      string     `json:"type,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
 }
 
 type CmsSection struct {
@@ -58,7 +58,7 @@ type CmsSection struct {
 	BackgroundMediaMode string         `json:"backgroundMediaMode,omitempty"`
 	Blocks              *CmsBlock      `json:"blocks,omitempty"`
 	CmsPageVersionId    string         `json:"cmsPageVersionId,omitempty"`
-	CreatedAt           time.Time      `json:"createdAt,omitempty"`
+	CreatedAt           *time.Time     `json:"createdAt,omitempty"`
 	CssClass            string         `json:"cssClass,omitempty"`
 	CustomFields        *[]CustomField `json:"customFields,omitempty"`
 	Id                  string         `json:"id,omitempty"`
@@ -70,7 +70,7 @@ type CmsSection struct {
 	Position            int            `json:"position,omitempty"`
 	SizingMode          string         `json:"sizingMode,omitempty"`
 	Type                string         `json:"type,omitempty"`
-	UpdatedAt           time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt           *time.Time     `json:"updatedAt,omitempty"`
 	VersionId           string         `json:"versionId,omitempty"`
 }
 
@@ -79,14 +79,14 @@ type CmsSlot struct {
 	BlockId           string    `json:"blockId,omitempty"`
 	CmsBlockVersionId string    `json:"cmsBlockVersionId,omitempty"`
 	// Config map[type:object] `json:"config,omitempty"`
-	CreatedAt    time.Time      `json:"createdAt,omitempty"`
+	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
 	// Data map[readOnly:true type:object] `json:"data,omitempty"`
 	Id     string `json:"id,omitempty"`
 	Locked bool   `json:"locked,omitempty"`
 	Slot   string `json:"slot,omitempty"`
 	// Translated map[type:object] `json:"translated,omitempty"`
-	Type      string    `json:"type,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
+	Type      string     `json:"type,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
 }

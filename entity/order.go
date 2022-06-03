@@ -16,7 +16,7 @@ type Order struct {
 	BillingAddressId        string         `json:"billingAddressId,omitempty"`
 	BillingAddressVersionId string         `json:"billingAddressVersionId,omitempty"`
 	CampaignCode            string         `json:"campaignCode,omitempty"`
-	CreatedAt               time.Time      `json:"createdAt,omitempty"`
+	CreatedAt               *time.Time     `json:"createdAt,omitempty"`
 	CreatedBy               *User          `json:"createdBy,omitempty"`
 	CreatedById             string         `json:"createdById,omitempty"`
 	Currency                *Currency      `json:"currency,omitempty"`
@@ -34,7 +34,7 @@ type Order struct {
 	LineItems     *OrderLineItem `json:"lineItems,omitempty"`
 	OrderCustomer *OrderCustomer `json:"orderCustomer,omitempty"`
 	OrderDate     string         `json:"orderDate,omitempty"`
-	OrderDateTime time.Time      `json:"orderDateTime,omitempty"`
+	OrderDateTime *time.Time     `json:"orderDateTime,omitempty"`
 	OrderNumber   string         `json:"orderNumber,omitempty"`
 	PositionPrice float64        `json:"positionPrice,omitempty"`
 	// Price map[properties:map[calculatedTaxes:map[type:object] netPrice:map[format:float type:number] positionPrice:map[format:float type:number] rawTotal:map[format:float type:number] taxRules:map[type:object] taxStatus:map[type:string] totalPrice:map[format:float type:number]] required:[netPrice totalPrice positionPrice rawTotal taxStatus] type:object] `json:"price,omitempty"`
@@ -49,7 +49,7 @@ type Order struct {
 	TaxStatus         string             `json:"taxStatus,omitempty"`
 	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
 	Transactions *OrderTransaction `json:"transactions,omitempty"`
-	UpdatedAt    time.Time         `json:"updatedAt,omitempty"`
+	UpdatedAt    *time.Time        `json:"updatedAt,omitempty"`
 	UpdatedBy    *User             `json:"updatedBy,omitempty"`
 	UpdatedById  string            `json:"updatedById,omitempty"`
 	VersionId    string            `json:"versionId,omitempty"`
@@ -64,7 +64,7 @@ type OrderAddress struct {
 	CountryId              string         `json:"countryId,omitempty"`
 	CountryState           *CountryState  `json:"countryState,omitempty"`
 	CountryStateId         string         `json:"countryStateId,omitempty"`
-	CreatedAt              time.Time      `json:"createdAt,omitempty"`
+	CreatedAt              *time.Time     `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField `json:"customFields,omitempty"`
 	Department             string         `json:"department,omitempty"`
 	FirstName              string         `json:"firstName,omitempty"`
@@ -79,7 +79,7 @@ type OrderAddress struct {
 	SalutationId           string         `json:"salutationId,omitempty"`
 	Street                 string         `json:"street,omitempty"`
 	Title                  string         `json:"title,omitempty"`
-	UpdatedAt              time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt              *time.Time     `json:"updatedAt,omitempty"`
 	VatId                  string         `json:"vatId,omitempty"`
 	VersionId              string         `json:"versionId,omitempty"`
 	Zipcode                string         `json:"zipcode,omitempty"`
@@ -87,7 +87,7 @@ type OrderAddress struct {
 
 type OrderCustomer struct {
 	Company        string         `json:"company,omitempty"`
-	CreatedAt      time.Time      `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField `json:"customFields,omitempty"`
 	Customer       *Customer      `json:"customer,omitempty"`
 	CustomerId     string         `json:"customerId,omitempty"`
@@ -103,13 +103,13 @@ type OrderCustomer struct {
 	Salutation     *Salutation    `json:"salutation,omitempty"`
 	SalutationId   string         `json:"salutationId,omitempty"`
 	Title          string         `json:"title,omitempty"`
-	UpdatedAt      time.Time      `json:"updatedAt,omitempty"`
+	UpdatedAt      *time.Time     `json:"updatedAt,omitempty"`
 	// VatIds map[items:map[type:string] type:array] `json:"vatIds,omitempty"`
 	VersionId string `json:"versionId,omitempty"`
 }
 
 type OrderDelivery struct {
-	CreatedAt      time.Time              `json:"createdAt,omitempty"`
+	CreatedAt      *time.Time             `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField         `json:"customFields,omitempty"`
 	Id             string                 `json:"id,omitempty"`
 	Order          *Order                 `json:"order,omitempty"`
@@ -117,8 +117,8 @@ type OrderDelivery struct {
 	OrderVersionId string                 `json:"orderVersionId,omitempty"`
 	Positions      *OrderDeliveryPosition `json:"positions,omitempty"`
 	// ShippingCosts map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"shippingCosts,omitempty"`
-	ShippingDateEarliest          time.Time          `json:"shippingDateEarliest,omitempty"`
-	ShippingDateLatest            time.Time          `json:"shippingDateLatest,omitempty"`
+	ShippingDateEarliest          *time.Time         `json:"shippingDateEarliest,omitempty"`
+	ShippingDateLatest            *time.Time         `json:"shippingDateLatest,omitempty"`
 	ShippingMethod                *ShippingMethod    `json:"shippingMethod,omitempty"`
 	ShippingMethodId              string             `json:"shippingMethodId,omitempty"`
 	ShippingOrderAddress          *OrderAddress      `json:"shippingOrderAddress,omitempty"`
@@ -127,12 +127,12 @@ type OrderDelivery struct {
 	StateId                       string             `json:"stateId,omitempty"`
 	StateMachineState             *StateMachineState `json:"stateMachineState,omitempty"`
 	// TrackingCodes map[items:map[type:string] type:array] `json:"trackingCodes,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt,omitempty"`
-	VersionId string    `json:"versionId,omitempty"`
+	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	VersionId string     `json:"versionId,omitempty"`
 }
 
 type OrderDeliveryPosition struct {
-	CreatedAt              time.Time      `json:"createdAt,omitempty"`
+	CreatedAt              *time.Time     `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField `json:"customFields,omitempty"`
 	Id                     string         `json:"id,omitempty"`
 	OrderDelivery          *OrderDelivery `json:"orderDelivery,omitempty"`
@@ -142,11 +142,11 @@ type OrderDeliveryPosition struct {
 	OrderLineItemId        string         `json:"orderLineItemId,omitempty"`
 	OrderLineItemVersionId string         `json:"orderLineItemVersionId,omitempty"`
 	// Price map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"price,omitempty"`
-	Quantity   int       `json:"quantity,omitempty"`
-	TotalPrice float64   `json:"totalPrice,omitempty"`
-	UnitPrice  float64   `json:"unitPrice,omitempty"`
-	UpdatedAt  time.Time `json:"updatedAt,omitempty"`
-	VersionId  string    `json:"versionId,omitempty"`
+	Quantity   int        `json:"quantity,omitempty"`
+	TotalPrice float64    `json:"totalPrice,omitempty"`
+	UnitPrice  float64    `json:"unitPrice,omitempty"`
+	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
+	VersionId  string     `json:"versionId,omitempty"`
 }
 
 type OrderLineItem struct {
