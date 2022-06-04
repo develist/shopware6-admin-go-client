@@ -86,4 +86,4 @@ https://shopware.stoplight.io/docs/admin-api.
 
     var err *entity.ApiErrors
 
-	err := customerRepo.Create(&customer)
+	err = customerRepo.Create(&customer)
