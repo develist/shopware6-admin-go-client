@@ -54,12 +54,12 @@ type Customer struct {
 	SalesChannelId           string            `json:"salesChannelId,omitempty"`
 	Salutation               *Salutation       `json:"salutation,omitempty"`
 	SalutationId             string            `json:"salutationId,omitempty"`
-	// TagIds map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array] `json:"tagIds,omitempty"`
-	Tags      *Tag       `json:"tags,omitempty"`
-	Title     string     `json:"title,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	// VatIds map[items:map[type:string] type:array] `json:"vatIds,omitempty"`
-	Wishlists *CustomerWishlist `json:"wishlists,omitempty"`
+	TagIds                   *interface{}      `json:"tagIds,omitempty"` // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
+	Tags                     *Tag              `json:"tags,omitempty"`
+	Title                    string            `json:"title,omitempty"`
+	UpdatedAt                *time.Time        `json:"updatedAt,omitempty"`
+	VatIds                   *interface{}      `json:"vatIds,omitempty"` // map[items:map[type:string] type:array]
+	Wishlists                *CustomerWishlist `json:"wishlists,omitempty"`
 }
 
 type CustomerAddress struct {
@@ -102,8 +102,8 @@ type CustomerGroup struct {
 	RegistrationSeoMetaDescription      string         `json:"registrationSeoMetaDescription,omitempty"`
 	RegistrationTitle                   string         `json:"registrationTitle,omitempty"`
 	SalesChannels                       *SalesChannel  `json:"salesChannels,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated                          *interface{}   `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                           *time.Time     `json:"updatedAt,omitempty"`
 }
 
 type CustomerGroupRegistrationSalesChannels struct {
