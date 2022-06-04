@@ -7,7 +7,7 @@
 You have to create an integration in the Shopware administration panel. For more information please refer
 https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen.
 Beside this token you need the toke URL and the base URL for the API as mentioned in this article
-https://shopware.stoplight.io/docs/admin-api.
+https://shopware.stoplight.io/docs/admin-api. 
 
     import (
         "context"
