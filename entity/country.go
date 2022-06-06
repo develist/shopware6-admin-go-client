@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Country data structure
+// Added since version: 6.0.0.0
+// Required fields: createdAt, name
 type Country struct {
 	Active                         bool                     `json:"active,omitempty"`
 	CheckVatIdPattern              bool                     `json:"checkVatIdPattern,omitempty"`
@@ -26,11 +30,14 @@ type Country struct {
 	States                         *CountryState            `json:"states,omitempty"`
 	TaxFree                        bool                     `json:"taxFree,omitempty"`
 	TaxRules                       *TaxRule                 `json:"taxRules,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt    *time.Time `json:"updatedAt,omitempty"`
-	VatIdPattern string     `json:"vatIdPattern,omitempty"`
+	Translated                     *interface{}             `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                      *time.Time               `json:"updatedAt,omitempty"`
+	VatIdPattern                   string                   `json:"vatIdPattern,omitempty"`
 }
 
+// CountryState data structure
+// Added since version: 6.0.0.0
+// Required fields: countryId, shortCode, createdAt, name
 type CountryState struct {
 	Active            bool             `json:"active,omitempty"`
 	Country           *Country         `json:"country,omitempty"`
@@ -43,6 +50,6 @@ type CountryState struct {
 	OrderAddresses    *OrderAddress    `json:"orderAddresses,omitempty"`
 	Position          int              `json:"position,omitempty"`
 	ShortCode         string           `json:"shortCode,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated        *interface{}     `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt         *time.Time       `json:"updatedAt,omitempty"`
 }

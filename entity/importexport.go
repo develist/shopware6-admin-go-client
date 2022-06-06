@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// ImportExportFile data structure
+// Added since version: 6.0.0.0
+// Required fields: originalName, path, expireDate, accessToken, createdAt
 type ImportExportFile struct {
 	AccessToken  string           `json:"accessToken,omitempty"`
 	CreatedAt    *time.Time       `json:"createdAt,omitempty"`
@@ -16,9 +20,12 @@ type ImportExportFile struct {
 	UpdatedAt    *time.Time       `json:"updatedAt,omitempty"`
 }
 
+// ImportExportLog data structure
+// Added since version: 6.0.0.0
+// Required fields: activity, state, records, config, createdAt
 type ImportExportLog struct {
-	Activity string `json:"activity,omitempty"`
-	// Config map[type:object] `json:"config,omitempty"`
+	Activity            string               `json:"activity,omitempty"`
+	Config              *interface{}         `json:"config,omitempty"` // map[type:object]
 	CreatedAt           *time.Time           `json:"createdAt,omitempty"`
 	FailedImportLog     *ImportExportLog     `json:"failedImportLog,omitempty"`
 	File                *ImportExportFile    `json:"file,omitempty"`
@@ -37,8 +44,11 @@ type ImportExportLog struct {
 	Username            string               `json:"username,omitempty"`
 }
 
+// ImportExportProfile data structure
+// Added since version: 6.0.0.0
+// Required fields: label, sourceEntity, fileType, delimiter, enclosure, createdAt
 type ImportExportProfile struct {
-	// Config map[type:object] `json:"config,omitempty"`
+	Config           *interface{}     `json:"config,omitempty"` // map[type:object]
 	CreatedAt        *time.Time       `json:"createdAt,omitempty"`
 	Delimiter        string           `json:"delimiter,omitempty"`
 	Enclosure        string           `json:"enclosure,omitempty"`
@@ -46,10 +56,10 @@ type ImportExportProfile struct {
 	Id               string           `json:"id,omitempty"`
 	ImportExportLogs *ImportExportLog `json:"importExportLogs,omitempty"`
 	Label            string           `json:"label,omitempty"`
-	// Mapping map[type:object] `json:"mapping,omitempty"`
-	Name          string `json:"name,omitempty"`
-	SourceEntity  string `json:"sourceEntity,omitempty"`
-	SystemDefault bool   `json:"systemDefault,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Mapping          *interface{}     `json:"mapping,omitempty"` // map[type:object]
+	Name             string           `json:"name,omitempty"`
+	SourceEntity     string           `json:"sourceEntity,omitempty"`
+	SystemDefault    bool             `json:"systemDefault,omitempty"`
+	Translated       *interface{}     `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt        *time.Time       `json:"updatedAt,omitempty"`
 }

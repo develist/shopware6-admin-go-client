@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// LandingPage data structure
+// Added since version: 6.4.0.0
+// Required fields: createdAt, name, url
 type LandingPage struct {
 	Active           bool           `json:"active,omitempty"`
 	CmsPage          *CmsPage       `json:"cmsPage,omitempty"`
@@ -18,14 +22,17 @@ type LandingPage struct {
 	Name             string         `json:"name,omitempty"`
 	SalesChannels    *SalesChannel  `json:"salesChannels,omitempty"`
 	SeoUrls          *SeoUrl        `json:"seoUrls,omitempty"`
-	// SlotConfig map[type:object] `json:"slotConfig,omitempty"`
-	Tags *Tag `json:"tags,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	Url       string     `json:"url,omitempty"`
-	VersionId string     `json:"versionId,omitempty"`
+	SlotConfig       *interface{}   `json:"slotConfig,omitempty"` // map[type:object]
+	Tags             *Tag           `json:"tags,omitempty"`
+	Translated       *interface{}   `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt        *time.Time     `json:"updatedAt,omitempty"`
+	Url              string         `json:"url,omitempty"`
+	VersionId        string         `json:"versionId,omitempty"`
 }
 
+// LandingPageSalesChannel data structure
+// Added since version: 6.4.0.0
+// Required fields: landingPageId, salesChannelId
 type LandingPageSalesChannel struct {
 	Id                   string        `json:"id,omitempty"`
 	LandingPage          *LandingPage  `json:"landingPage,omitempty"`
@@ -35,6 +42,9 @@ type LandingPageSalesChannel struct {
 	SalesChannelId       string        `json:"salesChannelId,omitempty"`
 }
 
+// LandingPageTag data structure
+// Added since version: 6.4.0.0
+// Required fields: landingPageId, tagId
 type LandingPageTag struct {
 	Id                   string       `json:"id,omitempty"`
 	LandingPage          *LandingPage `json:"landingPage,omitempty"`

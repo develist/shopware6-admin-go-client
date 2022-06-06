@@ -2,11 +2,15 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// CustomField data structure
+// Added since version: 6.0.0.0
+// Required fields: name, type, createdAt
 type CustomField struct {
-	Active bool `json:"active,omitempty"`
-	// Config map[type:object] `json:"config,omitempty"`
+	Active                    bool                      `json:"active,omitempty"`
+	Config                    *interface{}              `json:"config,omitempty"` // map[type:object]
 	CreatedAt                 *time.Time                `json:"createdAt,omitempty"`
 	CustomFieldSet            *CustomFieldSet           `json:"customFieldSet,omitempty"`
 	CustomFieldSetId          string                    `json:"customFieldSetId,omitempty"`
@@ -17,11 +21,14 @@ type CustomField struct {
 	UpdatedAt                 *time.Time                `json:"updatedAt,omitempty"`
 }
 
+// CustomFieldSet data structure
+// Added since version: 6.0.0.0
+// Required fields: name, createdAt
 type CustomFieldSet struct {
-	Active bool   `json:"active,omitempty"`
-	App    *App   `json:"app,omitempty"`
-	AppId  string `json:"appId,omitempty"`
-	// Config map[type:object] `json:"config,omitempty"`
+	Active       bool                    `json:"active,omitempty"`
+	App          *App                    `json:"app,omitempty"`
+	AppId        string                  `json:"appId,omitempty"`
+	Config       *interface{}            `json:"config,omitempty"` // map[type:object]
 	CreatedAt    *time.Time              `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField          `json:"customFields,omitempty"`
 	Global       bool                    `json:"global,omitempty"`
@@ -33,6 +40,9 @@ type CustomFieldSet struct {
 	UpdatedAt    *time.Time              `json:"updatedAt,omitempty"`
 }
 
+// CustomFieldSetRelation data structure
+// Added since version: 6.0.0.0
+// Required fields: customFieldSetId, entityName, createdAt
 type CustomFieldSetRelation struct {
 	CreatedAt        *time.Time      `json:"createdAt,omitempty"`
 	CustomFieldSet   *CustomFieldSet `json:"customFieldSet,omitempty"`

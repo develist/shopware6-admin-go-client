@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// SeoUrl data structure
+// Added since version: 6.0.0.0
+// Required fields: languageId, foreignKey, routeName, pathInfo, seoPathInfo, createdAt
 type SeoUrl struct {
 	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField `json:"customFields,omitempty"`
@@ -23,6 +27,9 @@ type SeoUrl struct {
 	Url            string         `json:"url,omitempty"`
 }
 
+// SeoUrlTemplate data structure
+// Added since version: 6.0.0.0
+// Required fields: entityName, routeName, createdAt
 type SeoUrlTemplate struct {
 	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField `json:"customFields,omitempty"`

@@ -2,17 +2,21 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Currency data structure
+// Added since version: 6.0.0.0
+// Required fields: factor, symbol, isoCode, itemRounding, totalRounding, createdAt, shortName, name
 type Currency struct {
-	CountryRoundings *CurrencyCountryRounding `json:"countryRoundings,omitempty"`
-	CreatedAt        *time.Time               `json:"createdAt,omitempty"`
-	CustomFields     *[]CustomField           `json:"customFields,omitempty"`
-	Factor           float64                  `json:"factor,omitempty"`
-	Id               string                   `json:"id,omitempty"`
-	IsSystemDefault  bool                     `json:"isSystemDefault,omitempty"`
-	IsoCode          string                   `json:"isoCode,omitempty"`
-	// ItemRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"itemRounding,omitempty"`
+	CountryRoundings               *CurrencyCountryRounding `json:"countryRoundings,omitempty"`
+	CreatedAt                      *time.Time               `json:"createdAt,omitempty"`
+	CustomFields                   *[]CustomField           `json:"customFields,omitempty"`
+	Factor                         float64                  `json:"factor,omitempty"`
+	Id                             string                   `json:"id,omitempty"`
+	IsSystemDefault                bool                     `json:"isSystemDefault,omitempty"`
+	IsoCode                        string                   `json:"isoCode,omitempty"`
+	ItemRounding                   *interface{}             `json:"itemRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
 	Name                           string                   `json:"name,omitempty"`
 	Orders                         *Order                   `json:"orders,omitempty"`
 	Position                       int                      `json:"position,omitempty"`
@@ -23,19 +27,22 @@ type Currency struct {
 	SalesChannels                  *SalesChannel            `json:"salesChannels,omitempty"`
 	ShortName                      string                   `json:"shortName,omitempty"`
 	Symbol                         string                   `json:"symbol,omitempty"`
-	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	TotalRounding                  *interface{}             `json:"totalRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
+	Translated                     *interface{}             `json:"translated,omitempty"`    // map[type:object]
+	UpdatedAt                      *time.Time               `json:"updatedAt,omitempty"`
 }
 
+// CurrencyCountryRounding data structure
+// Added since version: 6.4.0.0
+// Required fields: currencyId, countryId, itemRounding, totalRounding, createdAt
 type CurrencyCountryRounding struct {
-	Country    *Country   `json:"country,omitempty"`
-	CountryId  string     `json:"countryId,omitempty"`
-	CreatedAt  *time.Time `json:"createdAt,omitempty"`
-	Currency   *Currency  `json:"currency,omitempty"`
-	CurrencyId string     `json:"currencyId,omitempty"`
-	Id         string     `json:"id,omitempty"`
-	// ItemRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"itemRounding,omitempty"`
-	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Country       *Country     `json:"country,omitempty"`
+	CountryId     string       `json:"countryId,omitempty"`
+	CreatedAt     *time.Time   `json:"createdAt,omitempty"`
+	Currency      *Currency    `json:"currency,omitempty"`
+	CurrencyId    string       `json:"currencyId,omitempty"`
+	Id            string       `json:"id,omitempty"`
+	ItemRounding  *interface{} `json:"itemRounding,omitempty"`  // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
+	TotalRounding *interface{} `json:"totalRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
+	UpdatedAt     *time.Time   `json:"updatedAt,omitempty"`
 }

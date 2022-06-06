@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// StateMachine data structure
+// Added since version: 6.0.0.0
+// Required fields: technicalName, createdAt, name
 type StateMachine struct {
 	CreatedAt      *time.Time              `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField          `json:"customFields,omitempty"`
@@ -14,13 +18,16 @@ type StateMachine struct {
 	States         *StateMachineState      `json:"states,omitempty"`
 	TechnicalName  string                  `json:"technicalName,omitempty"`
 	Transitions    *StateMachineTransition `json:"transitions,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated     *interface{}            `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt      *time.Time              `json:"updatedAt,omitempty"`
 }
 
+// StateMachineHistory data structure
+// Added since version: 6.0.0.0
+// Required fields: stateMachineId, entityName, entityId, fromStateId, toStateId, createdAt
 type StateMachineHistory struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	// EntityId map[type:object] `json:"entityId,omitempty"`
+	CreatedAt             *time.Time         `json:"createdAt,omitempty"`
+	EntityId              *interface{}       `json:"entityId,omitempty"` // map[type:object]
 	EntityName            string             `json:"entityName,omitempty"`
 	FromStateId           string             `json:"fromStateId,omitempty"`
 	FromStateMachineState *StateMachineState `json:"fromStateMachineState,omitempty"`
@@ -35,6 +42,9 @@ type StateMachineHistory struct {
 	UserId                string             `json:"userId,omitempty"`
 }
 
+// StateMachineState data structure
+// Added since version: 6.0.0.0
+// Required fields: technicalName, stateMachineId, createdAt, name
 type StateMachineState struct {
 	CreatedAt                      *time.Time              `json:"createdAt,omitempty"`
 	CustomFields                   *[]CustomField          `json:"customFields,omitempty"`
@@ -50,10 +60,13 @@ type StateMachineState struct {
 	TechnicalName                  string                  `json:"technicalName,omitempty"`
 	ToStateMachineHistoryEntries   *StateMachineHistory    `json:"toStateMachineHistoryEntries,omitempty"`
 	ToStateMachineTransitions      *StateMachineTransition `json:"toStateMachineTransitions,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated                     *interface{}            `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                      *time.Time              `json:"updatedAt,omitempty"`
 }
 
+// StateMachineTransition data structure
+// Added since version: 6.0.0.0
+// Required fields: actionName, stateMachineId, fromStateId, toStateId, createdAt
 type StateMachineTransition struct {
 	ActionName            string             `json:"actionName,omitempty"`
 	CreatedAt             *time.Time         `json:"createdAt,omitempty"`

@@ -2,10 +2,14 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Document data structure
+// Added since version: 6.0.0.0
+// Required fields: documentTypeId, fileType, orderId, config, deepLinkCode, createdAt
 type Document struct {
-	// Config map[type:object] `json:"config,omitempty"`
+	Config               *interface{}   `json:"config,omitempty"` // map[type:object]
 	CreatedAt            *time.Time     `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField `json:"customFields,omitempty"`
 	DeepLinkCode         string         `json:"deepLinkCode,omitempty"`
@@ -26,8 +30,11 @@ type Document struct {
 	UpdatedAt            *time.Time     `json:"updatedAt,omitempty"`
 }
 
+// DocumentBaseConfig data structure
+// Added since version: 6.0.0.0
+// Required fields: documentTypeId, name, global, createdAt
 type DocumentBaseConfig struct {
-	// Config map[type:object] `json:"config,omitempty"`
+	Config         *interface{}                    `json:"config,omitempty"` // map[type:object]
 	CreatedAt      *time.Time                      `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField                  `json:"customFields,omitempty"`
 	DocumentNumber string                          `json:"documentNumber,omitempty"`
@@ -44,6 +51,9 @@ type DocumentBaseConfig struct {
 	UpdatedAt      *time.Time                      `json:"updatedAt,omitempty"`
 }
 
+// DocumentBaseConfigSalesChannel data structure
+// Added since version: 6.0.0.0
+// Required fields: documentBaseConfigId, createdAt
 type DocumentBaseConfigSalesChannel struct {
 	CreatedAt            *time.Time          `json:"createdAt,omitempty"`
 	DocumentBaseConfig   *DocumentBaseConfig `json:"documentBaseConfig,omitempty"`
@@ -56,6 +66,9 @@ type DocumentBaseConfigSalesChannel struct {
 	UpdatedAt            *time.Time          `json:"updatedAt,omitempty"`
 }
 
+// DocumentType data structure
+// Added since version: 6.0.0.0
+// Required fields: technicalName, createdAt, name
 type DocumentType struct {
 	CreatedAt                       *time.Time                      `json:"createdAt,omitempty"`
 	CustomFields                    *[]CustomField                  `json:"customFields,omitempty"`
@@ -65,6 +78,6 @@ type DocumentType struct {
 	Id                              string                          `json:"id,omitempty"`
 	Name                            string                          `json:"name,omitempty"`
 	TechnicalName                   string                          `json:"technicalName,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated                      *interface{}                    `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                       *time.Time                      `json:"updatedAt,omitempty"`
 }

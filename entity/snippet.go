@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Snippet data structure
+// Added since version: 6.0.0.0
+// Required fields: setId, translationKey, value, author, createdAt
 type Snippet struct {
 	Author         string         `json:"author,omitempty"`
 	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
@@ -16,6 +20,9 @@ type Snippet struct {
 	Value          string         `json:"value,omitempty"`
 }
 
+// SnippetSet data structure
+// Added since version: 6.0.0.0
+// Required fields: name, baseFile, iso, createdAt
 type SnippetSet struct {
 	BaseFile            string              `json:"baseFile,omitempty"`
 	CreatedAt           *time.Time          `json:"createdAt,omitempty"`

@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// MailHeaderFooter data structure
+// Added since version: 6.0.0.0
+// Required fields: createdAt, name
 type MailHeaderFooter struct {
 	CreatedAt     *time.Time    `json:"createdAt,omitempty"`
 	Description   string        `json:"description,omitempty"`
@@ -15,10 +19,13 @@ type MailHeaderFooter struct {
 	Name          string        `json:"name,omitempty"`
 	SalesChannels *SalesChannel `json:"salesChannels,omitempty"`
 	SystemDefault bool          `json:"systemDefault,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated    *interface{}  `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt     *time.Time    `json:"updatedAt,omitempty"`
 }
 
+// MailTemplate data structure
+// Added since version: 6.0.0.0
+// Required fields: mailTemplateTypeId, createdAt, subject, contentHtml, contentPlain
 type MailTemplate struct {
 	ContentHtml        string             `json:"contentHtml,omitempty"`
 	ContentPlain       string             `json:"contentPlain,omitempty"`
@@ -32,10 +39,13 @@ type MailTemplate struct {
 	SenderName         string             `json:"senderName,omitempty"`
 	Subject            string             `json:"subject,omitempty"`
 	SystemDefault      bool               `json:"systemDefault,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated         *interface{}       `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt          *time.Time         `json:"updatedAt,omitempty"`
 }
 
+// MailTemplateMedia data structure
+// Added since version: 6.0.0.0
+// Required fields: mailTemplateId, languageId, mediaId
 type MailTemplateMedia struct {
 	Id             string        `json:"id,omitempty"`
 	LanguageId     string        `json:"languageId,omitempty"`
@@ -46,15 +56,18 @@ type MailTemplateMedia struct {
 	Position       int           `json:"position,omitempty"`
 }
 
+// MailTemplateType data structure
+// Added since version: 6.0.0.0
+// Required fields: technicalName, createdAt, name
 type MailTemplateType struct {
-	// AvailableEntities map[type:object] `json:"availableEntities,omitempty"`
-	CreatedAt     *time.Time     `json:"createdAt,omitempty"`
-	CustomFields  *[]CustomField `json:"customFields,omitempty"`
-	Id            string         `json:"id,omitempty"`
-	MailTemplates *MailTemplate  `json:"mailTemplates,omitempty"`
-	Name          string         `json:"name,omitempty"`
-	TechnicalName string         `json:"technicalName,omitempty"`
-	// TemplateData map[type:object] `json:"templateData,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	AvailableEntities *interface{}   `json:"availableEntities,omitempty"` // map[type:object]
+	CreatedAt         *time.Time     `json:"createdAt,omitempty"`
+	CustomFields      *[]CustomField `json:"customFields,omitempty"`
+	Id                string         `json:"id,omitempty"`
+	MailTemplates     *MailTemplate  `json:"mailTemplates,omitempty"`
+	Name              string         `json:"name,omitempty"`
+	TechnicalName     string         `json:"technicalName,omitempty"`
+	TemplateData      *interface{}   `json:"templateData,omitempty"` // map[type:object]
+	Translated        *interface{}   `json:"translated,omitempty"`   // map[type:object]
+	UpdatedAt         *time.Time     `json:"updatedAt,omitempty"`
 }

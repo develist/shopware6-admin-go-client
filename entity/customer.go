@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Customer data structure
+// Added since version: 6.0.0.0
+// Required fields: groupId, defaultPaymentMethodId, salesChannelId, languageId, defaultBillingAddressId, defaultShippingAddressId, customerNumber, salutationId, firstName, lastName, email, createdAt
 type Customer struct {
 	Active                   bool              `json:"active,omitempty"`
 	Addresses                *CustomerAddress  `json:"addresses,omitempty"`
@@ -62,6 +66,9 @@ type Customer struct {
 	Wishlists                *CustomerWishlist `json:"wishlists,omitempty"`
 }
 
+// CustomerAddress data structure
+// Added since version: 6.0.0.0
+// Required fields: customerId, countryId, salutationId, firstName, lastName, zipcode, city, street, createdAt
 type CustomerAddress struct {
 	AdditionalAddressLine1 string         `json:"additionalAddressLine1,omitempty"`
 	AdditionalAddressLine2 string         `json:"additionalAddressLine2,omitempty"`
@@ -88,6 +95,9 @@ type CustomerAddress struct {
 	Zipcode                string         `json:"zipcode,omitempty"`
 }
 
+// CustomerGroup data structure
+// Added since version: 6.0.0.0
+// Required fields: createdAt, name
 type CustomerGroup struct {
 	CreatedAt                           *time.Time     `json:"createdAt,omitempty"`
 	CustomFields                        *[]CustomField `json:"customFields,omitempty"`
@@ -106,6 +116,9 @@ type CustomerGroup struct {
 	UpdatedAt                           *time.Time     `json:"updatedAt,omitempty"`
 }
 
+// CustomerGroupRegistrationSalesChannels data structure
+// Added since version: 6.3.1.0
+// Required fields: customerGroupId, salesChannelId, createdAt
 type CustomerGroupRegistrationSalesChannels struct {
 	CreatedAt       *time.Time     `json:"createdAt,omitempty"`
 	CustomerGroup   *CustomerGroup `json:"customerGroup,omitempty"`
@@ -115,6 +128,9 @@ type CustomerGroupRegistrationSalesChannels struct {
 	SalesChannelId  string         `json:"salesChannelId,omitempty"`
 }
 
+// CustomerRecovery data structure
+// Added since version: 6.1.0.0
+// Required fields: hash, customerId, createdAt
 type CustomerRecovery struct {
 	CreatedAt  *time.Time `json:"createdAt,omitempty"`
 	Customer   *Customer  `json:"customer,omitempty"`
@@ -124,6 +140,9 @@ type CustomerRecovery struct {
 	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
 }
 
+// CustomerTag data structure
+// Added since version: 6.0.0.0
+// Required fields: customerId, tagId
 type CustomerTag struct {
 	Customer   *Customer `json:"customer,omitempty"`
 	CustomerId string    `json:"customerId,omitempty"`
@@ -132,6 +151,9 @@ type CustomerTag struct {
 	TagId      string    `json:"tagId,omitempty"`
 }
 
+// CustomerWishlist data structure
+// Added since version: 6.3.4.0
+// Required fields: customerId, salesChannelId, createdAt
 type CustomerWishlist struct {
 	CreatedAt      *time.Time               `json:"createdAt,omitempty"`
 	CustomFields   *[]CustomField           `json:"customFields,omitempty"`
@@ -144,6 +166,9 @@ type CustomerWishlist struct {
 	UpdatedAt      *time.Time               `json:"updatedAt,omitempty"`
 }
 
+// CustomerWishlistProduct data structure
+// Added since version: 6.3.4.0
+// Required fields: productId, wishlistId, createdAt
 type CustomerWishlistProduct struct {
 	CreatedAt        *time.Time        `json:"createdAt,omitempty"`
 	Id               string            `json:"id,omitempty"`

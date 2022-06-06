@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// AclRole data structure
+// Added since version: 6.0.0.0
+// Required fields: name, privileges, createdAt
 type AclRole struct {
 	App          *App         `json:"app,omitempty"`
 	CreatedAt    *time.Time   `json:"createdAt,omitempty"`
@@ -12,11 +16,14 @@ type AclRole struct {
 	Id           string       `json:"id,omitempty"`
 	Integrations *Integration `json:"integrations,omitempty"`
 	Name         string       `json:"name,omitempty"`
-	// Privileges map[items:map[additionalProperties:false] type:array] `json:"privileges,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	Users     *User      `json:"users,omitempty"`
+	Privileges   *interface{} `json:"privileges,omitempty"` // map[items:map[additionalProperties:false] type:array]
+	UpdatedAt    *time.Time   `json:"updatedAt,omitempty"`
+	Users        *User        `json:"users,omitempty"`
 }
 
+// AclUserRole data structure
+// Added since version: 6.0.0.0
+// Required fields: userId, aclRoleId, createdAt
 type AclUserRole struct {
 	AclRole   *AclRole   `json:"aclRole,omitempty"`
 	AclRoleId string     `json:"aclRoleId,omitempty"`

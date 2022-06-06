@@ -4,57 +4,64 @@ import (
 	"time"
 )
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Order data structure
+// Added since version: 6.0.0.0
+// Required fields: billingAddressId, currencyId, languageId, salesChannelId, orderDateTime, currencyFactor, stateId, createdAt
 type Order struct {
-	Addresses               *OrderAddress  `json:"addresses,omitempty"`
-	AffiliateCode           string         `json:"affiliateCode,omitempty"`
-	AmountNet               float64        `json:"amountNet,omitempty"`
-	AmountTotal             float64        `json:"amountTotal,omitempty"`
-	AutoIncrement           int            `json:"autoIncrement,omitempty"`
-	BillingAddress          *OrderAddress  `json:"billingAddress,omitempty"`
-	BillingAddressId        string         `json:"billingAddressId,omitempty"`
-	BillingAddressVersionId string         `json:"billingAddressVersionId,omitempty"`
-	CampaignCode            string         `json:"campaignCode,omitempty"`
-	CreatedAt               *time.Time     `json:"createdAt,omitempty"`
-	CreatedBy               *User          `json:"createdBy,omitempty"`
-	CreatedById             string         `json:"createdById,omitempty"`
-	Currency                *Currency      `json:"currency,omitempty"`
-	CurrencyFactor          float64        `json:"currencyFactor,omitempty"`
-	CurrencyId              string         `json:"currencyId,omitempty"`
-	CustomFields            *[]CustomField `json:"customFields,omitempty"`
-	CustomerComment         string         `json:"customerComment,omitempty"`
-	DeepLinkCode            string         `json:"deepLinkCode,omitempty"`
-	Deliveries              *OrderDelivery `json:"deliveries,omitempty"`
-	Documents               *Document      `json:"documents,omitempty"`
-	Id                      string         `json:"id,omitempty"`
-	// ItemRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"itemRounding,omitempty"`
-	Language      *Language      `json:"language,omitempty"`
-	LanguageId    string         `json:"languageId,omitempty"`
-	LineItems     *OrderLineItem `json:"lineItems,omitempty"`
-	OrderCustomer *OrderCustomer `json:"orderCustomer,omitempty"`
-	OrderDate     string         `json:"orderDate,omitempty"`
-	OrderDateTime *time.Time     `json:"orderDateTime,omitempty"`
-	OrderNumber   string         `json:"orderNumber,omitempty"`
-	PositionPrice float64        `json:"positionPrice,omitempty"`
-	// Price map[properties:map[calculatedTaxes:map[type:object] netPrice:map[format:float type:number] positionPrice:map[format:float type:number] rawTotal:map[format:float type:number] taxRules:map[type:object] taxStatus:map[type:string] totalPrice:map[format:float type:number]] required:[netPrice totalPrice positionPrice rawTotal taxStatus] type:object] `json:"price,omitempty"`
-	// RuleIds map[items:map[type:string] type:array] `json:"ruleIds,omitempty"`
-	SalesChannel   *SalesChannel `json:"salesChannel,omitempty"`
-	SalesChannelId string        `json:"salesChannelId,omitempty"`
-	// ShippingCosts map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"shippingCosts,omitempty"`
-	ShippingTotal     float64            `json:"shippingTotal,omitempty"`
-	StateId           string             `json:"stateId,omitempty"`
-	StateMachineState *StateMachineState `json:"stateMachineState,omitempty"`
-	Tags              *Tag               `json:"tags,omitempty"`
-	TaxStatus         string             `json:"taxStatus,omitempty"`
-	// TotalRounding map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object] `json:"totalRounding,omitempty"`
-	Transactions *OrderTransaction `json:"transactions,omitempty"`
-	UpdatedAt    *time.Time        `json:"updatedAt,omitempty"`
-	UpdatedBy    *User             `json:"updatedBy,omitempty"`
-	UpdatedById  string            `json:"updatedById,omitempty"`
-	VersionId    string            `json:"versionId,omitempty"`
+	Addresses               *OrderAddress      `json:"addresses,omitempty"`
+	AffiliateCode           string             `json:"affiliateCode,omitempty"`
+	AmountNet               float64            `json:"amountNet,omitempty"`
+	AmountTotal             float64            `json:"amountTotal,omitempty"`
+	AutoIncrement           int                `json:"autoIncrement,omitempty"`
+	BillingAddress          *OrderAddress      `json:"billingAddress,omitempty"`
+	BillingAddressId        string             `json:"billingAddressId,omitempty"`
+	BillingAddressVersionId string             `json:"billingAddressVersionId,omitempty"`
+	CampaignCode            string             `json:"campaignCode,omitempty"`
+	CreatedAt               *time.Time         `json:"createdAt,omitempty"`
+	CreatedBy               *User              `json:"createdBy,omitempty"`
+	CreatedById             string             `json:"createdById,omitempty"`
+	Currency                *Currency          `json:"currency,omitempty"`
+	CurrencyFactor          float64            `json:"currencyFactor,omitempty"`
+	CurrencyId              string             `json:"currencyId,omitempty"`
+	CustomFields            *[]CustomField     `json:"customFields,omitempty"`
+	CustomerComment         string             `json:"customerComment,omitempty"`
+	DeepLinkCode            string             `json:"deepLinkCode,omitempty"`
+	Deliveries              *OrderDelivery     `json:"deliveries,omitempty"`
+	Documents               *Document          `json:"documents,omitempty"`
+	Id                      string             `json:"id,omitempty"`
+	ItemRounding            *interface{}       `json:"itemRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
+	Language                *Language          `json:"language,omitempty"`
+	LanguageId              string             `json:"languageId,omitempty"`
+	LineItems               *OrderLineItem     `json:"lineItems,omitempty"`
+	OrderCustomer           *OrderCustomer     `json:"orderCustomer,omitempty"`
+	OrderDate               string             `json:"orderDate,omitempty"`
+	OrderDateTime           *time.Time         `json:"orderDateTime,omitempty"`
+	OrderNumber             string             `json:"orderNumber,omitempty"`
+	PositionPrice           float64            `json:"positionPrice,omitempty"`
+	Price                   *interface{}       `json:"price,omitempty"`   // map[properties:map[calculatedTaxes:map[type:object] netPrice:map[format:float type:number] positionPrice:map[format:float type:number] rawTotal:map[format:float type:number] taxRules:map[type:object] taxStatus:map[type:string] totalPrice:map[format:float type:number]] required:[netPrice totalPrice positionPrice rawTotal taxStatus] type:object]
+	RuleIds                 *interface{}       `json:"ruleIds,omitempty"` // map[items:map[type:string] type:array]
+	SalesChannel            *SalesChannel      `json:"salesChannel,omitempty"`
+	SalesChannelId          string             `json:"salesChannelId,omitempty"`
+	ShippingCosts           *interface{}       `json:"shippingCosts,omitempty"` // map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object]
+	ShippingTotal           float64            `json:"shippingTotal,omitempty"`
+	StateId                 string             `json:"stateId,omitempty"`
+	StateMachineState       *StateMachineState `json:"stateMachineState,omitempty"`
+	Tags                    *Tag               `json:"tags,omitempty"`
+	TaxStatus               string             `json:"taxStatus,omitempty"`
+	TotalRounding           *interface{}       `json:"totalRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
+	Transactions            *OrderTransaction  `json:"transactions,omitempty"`
+	UpdatedAt               *time.Time         `json:"updatedAt,omitempty"`
+	UpdatedBy               *User              `json:"updatedBy,omitempty"`
+	UpdatedById             string             `json:"updatedById,omitempty"`
+	VersionId               string             `json:"versionId,omitempty"`
 }
 
+// OrderAddress data structure
+// Added since version: 6.0.0.0
+// Required fields: countryId, orderId, salutationId, firstName, lastName, street, zipcode, city, createdAt
 type OrderAddress struct {
 	AdditionalAddressLine1 string         `json:"additionalAddressLine1,omitempty"`
 	AdditionalAddressLine2 string         `json:"additionalAddressLine2,omitempty"`
@@ -85,6 +92,9 @@ type OrderAddress struct {
 	Zipcode                string         `json:"zipcode,omitempty"`
 }
 
+// OrderCustomer data structure
+// Added since version: 6.0.0.0
+// Required fields: orderId, email, salutationId, firstName, lastName, createdAt
 type OrderCustomer struct {
 	Company        string         `json:"company,omitempty"`
 	CreatedAt      *time.Time     `json:"createdAt,omitempty"`
@@ -104,33 +114,39 @@ type OrderCustomer struct {
 	SalutationId   string         `json:"salutationId,omitempty"`
 	Title          string         `json:"title,omitempty"`
 	UpdatedAt      *time.Time     `json:"updatedAt,omitempty"`
-	// VatIds map[items:map[type:string] type:array] `json:"vatIds,omitempty"`
-	VersionId string `json:"versionId,omitempty"`
+	VatIds         *interface{}   `json:"vatIds,omitempty"` // map[items:map[type:string] type:array]
+	VersionId      string         `json:"versionId,omitempty"`
 }
 
+// OrderDelivery data structure
+// Added since version: 6.0.0.0
+// Required fields: orderId, shippingOrderAddressId, shippingMethodId, stateId, trackingCodes, shippingDateEarliest, shippingDateLatest, createdAt
 type OrderDelivery struct {
-	CreatedAt      *time.Time             `json:"createdAt,omitempty"`
-	CustomFields   *[]CustomField         `json:"customFields,omitempty"`
-	Id             string                 `json:"id,omitempty"`
-	Order          *Order                 `json:"order,omitempty"`
-	OrderId        string                 `json:"orderId,omitempty"`
-	OrderVersionId string                 `json:"orderVersionId,omitempty"`
-	Positions      *OrderDeliveryPosition `json:"positions,omitempty"`
-	// ShippingCosts map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"shippingCosts,omitempty"`
-	ShippingDateEarliest          *time.Time         `json:"shippingDateEarliest,omitempty"`
-	ShippingDateLatest            *time.Time         `json:"shippingDateLatest,omitempty"`
-	ShippingMethod                *ShippingMethod    `json:"shippingMethod,omitempty"`
-	ShippingMethodId              string             `json:"shippingMethodId,omitempty"`
-	ShippingOrderAddress          *OrderAddress      `json:"shippingOrderAddress,omitempty"`
-	ShippingOrderAddressId        string             `json:"shippingOrderAddressId,omitempty"`
-	ShippingOrderAddressVersionId string             `json:"shippingOrderAddressVersionId,omitempty"`
-	StateId                       string             `json:"stateId,omitempty"`
-	StateMachineState             *StateMachineState `json:"stateMachineState,omitempty"`
-	// TrackingCodes map[items:map[type:string] type:array] `json:"trackingCodes,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	VersionId string     `json:"versionId,omitempty"`
+	CreatedAt                     *time.Time             `json:"createdAt,omitempty"`
+	CustomFields                  *[]CustomField         `json:"customFields,omitempty"`
+	Id                            string                 `json:"id,omitempty"`
+	Order                         *Order                 `json:"order,omitempty"`
+	OrderId                       string                 `json:"orderId,omitempty"`
+	OrderVersionId                string                 `json:"orderVersionId,omitempty"`
+	Positions                     *OrderDeliveryPosition `json:"positions,omitempty"`
+	ShippingCosts                 *interface{}           `json:"shippingCosts,omitempty"` // map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object]
+	ShippingDateEarliest          *time.Time             `json:"shippingDateEarliest,omitempty"`
+	ShippingDateLatest            *time.Time             `json:"shippingDateLatest,omitempty"`
+	ShippingMethod                *ShippingMethod        `json:"shippingMethod,omitempty"`
+	ShippingMethodId              string                 `json:"shippingMethodId,omitempty"`
+	ShippingOrderAddress          *OrderAddress          `json:"shippingOrderAddress,omitempty"`
+	ShippingOrderAddressId        string                 `json:"shippingOrderAddressId,omitempty"`
+	ShippingOrderAddressVersionId string                 `json:"shippingOrderAddressVersionId,omitempty"`
+	StateId                       string                 `json:"stateId,omitempty"`
+	StateMachineState             *StateMachineState     `json:"stateMachineState,omitempty"`
+	TrackingCodes                 *interface{}           `json:"trackingCodes,omitempty"` // map[items:map[type:string] type:array]
+	UpdatedAt                     *time.Time             `json:"updatedAt,omitempty"`
+	VersionId                     string                 `json:"versionId,omitempty"`
 }
 
+// OrderDeliveryPosition data structure
+// Added since version: 6.0.0.0
+// Required fields: orderDeliveryId, orderLineItemId, createdAt
 type OrderDeliveryPosition struct {
 	CreatedAt              *time.Time     `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField `json:"customFields,omitempty"`
@@ -141,14 +157,17 @@ type OrderDeliveryPosition struct {
 	OrderLineItem          *OrderLineItem `json:"orderLineItem,omitempty"`
 	OrderLineItemId        string         `json:"orderLineItemId,omitempty"`
 	OrderLineItemVersionId string         `json:"orderLineItemVersionId,omitempty"`
-	// Price map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"price,omitempty"`
-	Quantity   int        `json:"quantity,omitempty"`
-	TotalPrice float64    `json:"totalPrice,omitempty"`
-	UnitPrice  float64    `json:"unitPrice,omitempty"`
-	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
-	VersionId  string     `json:"versionId,omitempty"`
+	Price                  *interface{}   `json:"price,omitempty"` // map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object]
+	Quantity               int            `json:"quantity,omitempty"`
+	TotalPrice             float64        `json:"totalPrice,omitempty"`
+	UnitPrice              float64        `json:"unitPrice,omitempty"`
+	UpdatedAt              *time.Time     `json:"updatedAt,omitempty"`
+	VersionId              string         `json:"versionId,omitempty"`
 }
 
+// OrderLineItem data structure
+// Added since version: 6.0.0.0
+// Required fields: orderId, identifier, quantity, label, position, price, children, createdAt
 type OrderLineItem struct {
 	Children               *OrderLineItem         `json:"children,omitempty"`
 	Cover                  *Media                 `json:"cover,omitempty"`
@@ -167,24 +186,27 @@ type OrderLineItem struct {
 	Parent                 *OrderLineItem         `json:"parent,omitempty"`
 	ParentId               string                 `json:"parentId,omitempty"`
 	ParentVersionId        string                 `json:"parentVersionId,omitempty"`
-	// Payload map[type:object] `json:"payload,omitempty"`
-	Position int `json:"position,omitempty"`
-	// Price map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"price,omitempty"`
-	// PriceDefinition map[type:object] `json:"priceDefinition,omitempty"`
-	Product          *Product   `json:"product,omitempty"`
-	ProductId        string     `json:"productId,omitempty"`
-	ProductVersionId string     `json:"productVersionId,omitempty"`
-	Quantity         int        `json:"quantity,omitempty"`
-	ReferencedId     string     `json:"referencedId,omitempty"`
-	Removable        bool       `json:"removable,omitempty"`
-	Stackable        bool       `json:"stackable,omitempty"`
-	TotalPrice       float64    `json:"totalPrice,omitempty"`
-	Type             string     `json:"type,omitempty"`
-	UnitPrice        float64    `json:"unitPrice,omitempty"`
-	UpdatedAt        *time.Time `json:"updatedAt,omitempty"`
-	VersionId        string     `json:"versionId,omitempty"`
+	Payload                *interface{}           `json:"payload,omitempty"` // map[type:object]
+	Position               int                    `json:"position,omitempty"`
+	Price                  *interface{}           `json:"price,omitempty"`           // map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object]
+	PriceDefinition        *interface{}           `json:"priceDefinition,omitempty"` // map[type:object]
+	Product                *Product               `json:"product,omitempty"`
+	ProductId              string                 `json:"productId,omitempty"`
+	ProductVersionId       string                 `json:"productVersionId,omitempty"`
+	Quantity               int                    `json:"quantity,omitempty"`
+	ReferencedId           string                 `json:"referencedId,omitempty"`
+	Removable              bool                   `json:"removable,omitempty"`
+	Stackable              bool                   `json:"stackable,omitempty"`
+	TotalPrice             float64                `json:"totalPrice,omitempty"`
+	Type                   string                 `json:"type,omitempty"`
+	UnitPrice              float64                `json:"unitPrice,omitempty"`
+	UpdatedAt              *time.Time             `json:"updatedAt,omitempty"`
+	VersionId              string                 `json:"versionId,omitempty"`
 }
 
+// OrderTag data structure
+// Added since version: 6.0.0.0
+// Required fields: orderId, tagId
 type OrderTag struct {
 	Id             string `json:"id,omitempty"`
 	Order          *Order `json:"order,omitempty"`
@@ -194,8 +216,11 @@ type OrderTag struct {
 	TagId          string `json:"tagId,omitempty"`
 }
 
+// OrderTransaction data structure
+// Added since version: 6.0.0.0
+// Required fields: orderId, paymentMethodId, amount, stateId, createdAt
 type OrderTransaction struct {
-	// Amount map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object] `json:"amount,omitempty"`
+	Amount            *interface{}       `json:"amount,omitempty"` // map[properties:map[calculatedTaxes:map[type:object] listPrice:map[properties:map[discount:map[format:float type:number] percentage:map[format:float type:number] price:map[format:float type:number]] type:object] quantity:map[format:int64 type:integer] referencePrice:map[type:object] taxRules:map[type:object] totalPrice:map[format:float type:number] unitPrice:map[format:float type:number]] required:[unitPrice totalPrice quantity] type:object]
 	CreatedAt         *time.Time         `json:"createdAt,omitempty"`
 	CustomFields      *[]CustomField     `json:"customFields,omitempty"`
 	Id                string             `json:"id,omitempty"`

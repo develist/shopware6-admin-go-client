@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// Salutation data structure
+// Added since version: 6.0.0.0
+// Required fields: salutationKey, createdAt, displayName, letterName
 type Salutation struct {
 	CreatedAt            *time.Time           `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField       `json:"customFields,omitempty"`
@@ -16,6 +20,6 @@ type Salutation struct {
 	OrderAddresses       *OrderAddress        `json:"orderAddresses,omitempty"`
 	OrderCustomers       *OrderCustomer       `json:"orderCustomers,omitempty"`
 	SalutationKey        string               `json:"salutationKey,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated           *interface{}         `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt            *time.Time           `json:"updatedAt,omitempty"`
 }

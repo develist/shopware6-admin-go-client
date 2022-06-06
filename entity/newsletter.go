@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// NewsletterRecipient data structure
+// Added since version: 6.0.0.0
+// Required fields: email, status, hash, languageId, salesChannelId, createdAt
 type NewsletterRecipient struct {
 	City           string         `json:"city,omitempty"`
 	ConfirmedAt    *time.Time     `json:"confirmedAt,omitempty"`
@@ -28,6 +32,9 @@ type NewsletterRecipient struct {
 	ZipCode        string         `json:"zipCode,omitempty"`
 }
 
+// NewsletterRecipientTag data structure
+// Added since version: 6.0.0.0
+// Required fields: newsletterRecipientId, tagId
 type NewsletterRecipientTag struct {
 	Id                    string               `json:"id,omitempty"`
 	NewsletterRecipient   *NewsletterRecipient `json:"newsletterRecipient,omitempty"`

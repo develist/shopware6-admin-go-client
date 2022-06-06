@@ -2,8 +2,12 @@ package entity
 
 import "time"
 
-// completed
+// Generated from Shopware Admin API
+// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
 
+// PaymentMethod data structure
+// Added since version: 6.0.0.0
+// Required fields: createdAt, name
 type PaymentMethod struct {
 	Active                         bool              `json:"active,omitempty"`
 	AfterOrderEnabled              bool              `json:"afterOrderEnabled,omitempty"`
@@ -26,6 +30,6 @@ type PaymentMethod struct {
 	Position                       int               `json:"position,omitempty"`
 	SalesChannelDefaultAssignments *SalesChannel     `json:"salesChannelDefaultAssignments,omitempty"`
 	SalesChannels                  *SalesChannel     `json:"salesChannels,omitempty"`
-	// Translated map[type:object] `json:"translated,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	Translated                     *interface{}      `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                      *time.Time        `json:"updatedAt,omitempty"`
 }
