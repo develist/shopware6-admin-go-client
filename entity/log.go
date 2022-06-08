@@ -9,12 +9,12 @@ import "time"
 // Added since version: 6.0.0.0
 // Required fields: createdAt
 type LogEntry struct {
-	Channel   string       `json:"channel,omitempty"`
+	Channel   *string      `json:"channel,omitempty"`
 	Context   *interface{} `json:"context,omitempty"` // map[type:object]
 	CreatedAt *time.Time   `json:"createdAt,omitempty"`
 	Extra     *interface{} `json:"extra,omitempty"` // map[type:object]
-	Id        string       `json:"id,omitempty"`
-	Level     int          `json:"level,omitempty"`
-	Message   string       `json:"message,omitempty"`
+	Id        *string      `json:"id,omitempty"`
+	Level     *int         `json:"level,omitempty"`
+	Message   *string      `json:"message,omitempty"`
 	UpdatedAt *time.Time   `json:"updatedAt,omitempty"`
 }

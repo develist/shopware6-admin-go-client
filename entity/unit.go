@@ -11,10 +11,10 @@ import "time"
 type Unit struct {
 	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
-	Id           string         `json:"id,omitempty"`
-	Name         string         `json:"name,omitempty"`
+	Id           *string        `json:"id,omitempty"`
+	Name         *string        `json:"name,omitempty"`
 	Products     *Product       `json:"products,omitempty"`
-	ShortCode    string         `json:"shortCode,omitempty"`
+	ShortCode    *string        `json:"shortCode,omitempty"`
 	Translated   *interface{}   `json:"translated,omitempty"` // map[type:object]
 	UpdatedAt    *time.Time     `json:"updatedAt,omitempty"`
 }

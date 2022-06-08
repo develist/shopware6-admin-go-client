@@ -9,16 +9,16 @@ import "time"
 // Added since version: 6.0.0.0
 // Required fields: eventName, actionName, createdAt
 type EventAction struct {
-	ActionName    string         `json:"actionName,omitempty"`
-	Active        bool           `json:"active,omitempty"`
+	ActionName    *string        `json:"actionName,omitempty"`
+	Active        *bool          `json:"active,omitempty"`
 	Config        *interface{}   `json:"config,omitempty"` // map[type:object]
 	CreatedAt     *time.Time     `json:"createdAt,omitempty"`
 	CustomFields  *[]CustomField `json:"customFields,omitempty"`
-	EventName     string         `json:"eventName,omitempty"`
-	Id            string         `json:"id,omitempty"`
+	EventName     *string        `json:"eventName,omitempty"`
+	Id            *string        `json:"id,omitempty"`
 	Rules         *Rule          `json:"rules,omitempty"`
 	SalesChannels *SalesChannel  `json:"salesChannels,omitempty"`
-	Title         string         `json:"title,omitempty"`
+	Title         *string        `json:"title,omitempty"`
 	UpdatedAt     *time.Time     `json:"updatedAt,omitempty"`
 }
 
@@ -27,10 +27,10 @@ type EventAction struct {
 // Required fields: eventActionId, ruleId
 type EventActionRule struct {
 	EventAction   *EventAction `json:"eventAction,omitempty"`
-	EventActionId string       `json:"eventActionId,omitempty"`
-	Id            string       `json:"id,omitempty"`
+	EventActionId *string      `json:"eventActionId,omitempty"`
+	Id            *string      `json:"id,omitempty"`
 	Rule          *Rule        `json:"rule,omitempty"`
-	RuleId        string       `json:"ruleId,omitempty"`
+	RuleId        *string      `json:"ruleId,omitempty"`
 }
 
 // EventActionSalesChannel data structure
@@ -38,8 +38,8 @@ type EventActionRule struct {
 // Required fields: eventActionId, salesChannelId
 type EventActionSalesChannel struct {
 	EventAction    *EventAction  `json:"eventAction,omitempty"`
-	EventActionId  string        `json:"eventActionId,omitempty"`
-	Id             string        `json:"id,omitempty"`
+	EventActionId  *string       `json:"eventActionId,omitempty"`
+	Id             *string       `json:"id,omitempty"`
 	SalesChannel   *SalesChannel `json:"salesChannel,omitempty"`
-	SalesChannelId string        `json:"salesChannelId,omitempty"`
+	SalesChannelId *string       `json:"salesChannelId,omitempty"`
 }

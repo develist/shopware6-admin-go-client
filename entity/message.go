@@ -10,8 +10,8 @@ import "time"
 // Required fields: name, size, createdAt
 type MessageQueueStats struct {
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Id        string     `json:"id,omitempty"`
-	Name      string     `json:"name,omitempty"`
-	Size      int        `json:"size,omitempty"`
+	Id        *string    `json:"id,omitempty"`
+	Name      *string    `json:"name,omitempty"`
+	Size      *int       `json:"size,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }

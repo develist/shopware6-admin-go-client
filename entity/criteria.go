@@ -3,8 +3,8 @@ package entity
 // own structs
 
 type Criteria struct {
-	Page         int                 `json:"page,omitempty"`
-	Limit        int                 `json:"limit,omitempty"`
+	Page         *int                `json:"page,omitempty"`
+	Limit        *int                `json:"limit,omitempty"`
 	Filter       []FilterCriteria    `json:"filter,omitempty"`
 	Sort         []SortCriteria      `json:"sort,omitempty"`
 	Associations map[string]Criteria `json:"associations,omitempty"`
@@ -12,7 +12,7 @@ type Criteria struct {
 
 type FilterCriteria struct {
 	Type       FilterType                 `json:"type"`
-	Field      string                     `json:"field"`
+	Field      *string                    `json:"field"`
 	Parameters map[FilterParameter]string `json:"parameters"`
 }
 
@@ -39,9 +39,9 @@ const (
 )
 
 type SortCriteria struct {
-	Field          string    `json:"field"`
+	Field          *string   `json:"field"`
 	Order          SortOrder `json:"order"`
-	NaturalSorting bool      `json:"naturalSorting"`
+	NaturalSorting *bool     `json:"naturalSorting"`
 }
 
 type SortOrder string
@@ -56,8 +56,8 @@ type ResultTypes[T any] interface {
 }
 
 type Results[T any] struct {
-	Total int `json:"total"`
-	Data  []T `json:"data"`
+	Total *int `json:"total"`
+	Data  []T  `json:"data"`
 }
 
 type Result[T any] struct {

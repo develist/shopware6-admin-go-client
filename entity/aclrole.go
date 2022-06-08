@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-08 18:37:21 UTC
 
 // AclRole data structure
 // Added since version: 6.0.0.0
@@ -12,10 +12,10 @@ type AclRole struct {
 	App          *App         `json:"app,omitempty"`
 	CreatedAt    *time.Time   `json:"createdAt,omitempty"`
 	DeletedAt    *time.Time   `json:"deletedAt,omitempty"`
-	Description  string       `json:"description,omitempty"`
-	Id           string       `json:"id,omitempty"`
+	Description  *string      `json:"description,omitempty"`
+	Id           *string      `json:"id,omitempty"`
 	Integrations *Integration `json:"integrations,omitempty"`
-	Name         string       `json:"name,omitempty"`
+	Name         *string      `json:"name,omitempty"`
 	Privileges   *interface{} `json:"privileges,omitempty"` // map[items:map[additionalProperties:false] type:array]
 	UpdatedAt    *time.Time   `json:"updatedAt,omitempty"`
 	Users        *User        `json:"users,omitempty"`
@@ -26,10 +26,10 @@ type AclRole struct {
 // Required fields: userId, aclRoleId, createdAt
 type AclUserRole struct {
 	AclRole   *AclRole   `json:"aclRole,omitempty"`
-	AclRoleId string     `json:"aclRoleId,omitempty"`
+	AclRoleId *string    `json:"aclRoleId,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Id        string     `json:"id,omitempty"`
+	Id        *string    `json:"id,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 	User      *User      `json:"user,omitempty"`
-	UserId    string     `json:"userId,omitempty"`
+	UserId    *string    `json:"userId,omitempty"`
 }

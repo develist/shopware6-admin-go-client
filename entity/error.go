@@ -18,7 +18,7 @@ type ApiError struct {
 }
 
 type ApiErrorSource struct {
-	Pointer string `json:"pointer,omitempty"`
+	Pointer string `json:"po*inter,omitempty"`
 }
 
 type ApiErrorMeta struct {
