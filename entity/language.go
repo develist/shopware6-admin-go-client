@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // Language data structure
 // Added since version: 6.0.0.0
@@ -13,10 +13,10 @@ type Language struct {
 	CreatedAt                      *time.Time                `json:"createdAt,omitempty"`
 	CustomFields                   *[]CustomField            `json:"customFields,omitempty"`
 	Customers                      *Customer                 `json:"customers,omitempty"`
-	Id                             *string                   `json:"id,omitempty"`
+	Id                             string                    `json:"id,omitempty"`
 	Locale                         *Locale                   `json:"locale,omitempty"`
-	LocaleId                       *string                   `json:"localeId,omitempty"`
-	Name                           *string                   `json:"name,omitempty"`
+	LocaleId                       string                    `json:"localeId,omitempty"`
+	Name                           string                    `json:"name,omitempty"`
 	NewsletterRecipients           *NewsletterRecipient      `json:"newsletterRecipients,omitempty"`
 	Orders                         *Order                    `json:"orders,omitempty"`
 	Parent                         *Language                 `json:"parent,omitempty"`

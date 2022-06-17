@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // Country data structure
 // Added since version: 6.0.0.0
@@ -18,10 +18,10 @@ type Country struct {
 	CustomerAddresses              *CustomerAddress         `json:"customerAddresses,omitempty"`
 	DisplayStateInRegistration     *bool                    `json:"displayStateInRegistration,omitempty"`
 	ForceStateInRegistration       *bool                    `json:"forceStateInRegistration,omitempty"`
-	Id                             *string                  `json:"id,omitempty"`
+	Id                             string                   `json:"id,omitempty"`
 	Iso                            *string                  `json:"iso,omitempty"`
 	Iso3                           *string                  `json:"iso3,omitempty"`
-	Name                           *string                  `json:"name,omitempty"`
+	Name                           string                   `json:"name,omitempty"`
 	OrderAddresses                 *OrderAddress            `json:"orderAddresses,omitempty"`
 	Position                       *int                     `json:"position,omitempty"`
 	SalesChannelDefaultAssignments *SalesChannel            `json:"salesChannelDefaultAssignments,omitempty"`
@@ -41,15 +41,15 @@ type Country struct {
 type CountryState struct {
 	Active            *bool            `json:"active,omitempty"`
 	Country           *Country         `json:"country,omitempty"`
-	CountryId         *string          `json:"countryId,omitempty"`
+	CountryId         string           `json:"countryId,omitempty"`
 	CreatedAt         *time.Time       `json:"createdAt,omitempty"`
 	CustomFields      *[]CustomField   `json:"customFields,omitempty"`
 	CustomerAddresses *CustomerAddress `json:"customerAddresses,omitempty"`
-	Id                *string          `json:"id,omitempty"`
-	Name              *string          `json:"name,omitempty"`
+	Id                string           `json:"id,omitempty"`
+	Name              string           `json:"name,omitempty"`
 	OrderAddresses    *OrderAddress    `json:"orderAddresses,omitempty"`
 	Position          *int             `json:"position,omitempty"`
-	ShortCode         *string          `json:"shortCode,omitempty"`
+	ShortCode         string           `json:"shortCode,omitempty"`
 	Translated        *interface{}     `json:"translated,omitempty"` // map[type:object]
 	UpdatedAt         *time.Time       `json:"updatedAt,omitempty"`
 }

@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // Media data structure
 // Added since version: 6.0.0.0
@@ -24,7 +24,7 @@ type Media struct {
 	FileName                    *string                     `json:"fileName,omitempty"`
 	FileSize                    *int                        `json:"fileSize,omitempty"`
 	HasFile                     *bool                       `json:"hasFile,omitempty"`
-	Id                          *string                     `json:"id,omitempty"`
+	Id                          string                      `json:"id,omitempty"`
 	MailTemplateMedia           *MailTemplateMedia          `json:"mailTemplateMedia,omitempty"`
 	MediaFolder                 *MediaFolder                `json:"mediaFolder,omitempty"`
 	MediaFolderId               *string                     `json:"mediaFolderId,omitempty"`
@@ -57,9 +57,9 @@ type MediaDefaultFolder struct {
 	AssociationFields *[]string      `json:"associationFields,omitempty"` // map[items:map[type:string] type:array]
 	CreatedAt         *time.Time     `json:"createdAt,omitempty"`
 	CustomFields      *[]CustomField `json:"customFields,omitempty"`
-	Entity            *string        `json:"entity,omitempty"`
+	Entity            string         `json:"entity,omitempty"`
 	Folder            *MediaFolder   `json:"folder,omitempty"`
-	Id                *string        `json:"id,omitempty"`
+	Id                string         `json:"id,omitempty"`
 	UpdatedAt         *time.Time     `json:"updatedAt,omitempty"`
 }
 
@@ -70,14 +70,14 @@ type MediaFolder struct {
 	ChildCount             *int                      `json:"childCount,omitempty"`
 	Children               *MediaFolder              `json:"children,omitempty"`
 	Configuration          *MediaFolderConfiguration `json:"configuration,omitempty"`
-	ConfigurationId        *string                   `json:"configurationId,omitempty"`
+	ConfigurationId        string                    `json:"configurationId,omitempty"`
 	CreatedAt              *time.Time                `json:"createdAt,omitempty"`
 	CustomFields           *[]CustomField            `json:"customFields,omitempty"`
 	DefaultFolder          *MediaDefaultFolder       `json:"defaultFolder,omitempty"`
 	DefaultFolderId        *string                   `json:"defaultFolderId,omitempty"`
-	Id                     *string                   `json:"id,omitempty"`
+	Id                     string                    `json:"id,omitempty"`
 	Media                  *Media                    `json:"media,omitempty"`
-	Name                   *string                   `json:"name,omitempty"`
+	Name                   string                    `json:"name,omitempty"`
 	Parent                 *MediaFolder              `json:"parent,omitempty"`
 	ParentId               *string                   `json:"parentId,omitempty"`
 	UpdatedAt              *time.Time                `json:"updatedAt,omitempty"`
@@ -91,7 +91,7 @@ type MediaFolderConfiguration struct {
 	CreateThumbnails    *bool               `json:"createThumbnails,omitempty"`
 	CreatedAt           *time.Time          `json:"createdAt,omitempty"`
 	CustomFields        *[]CustomField      `json:"customFields,omitempty"`
-	Id                  *string             `json:"id,omitempty"`
+	Id                  string              `json:"id,omitempty"`
 	KeepAspectRatio     *bool               `json:"keepAspectRatio,omitempty"`
 	MediaFolders        *MediaFolder        `json:"mediaFolders,omitempty"`
 	MediaThumbnailSizes *MediaThumbnailSize `json:"mediaThumbnailSizes,omitempty"`
@@ -105,22 +105,22 @@ type MediaFolderConfiguration struct {
 // Added since version: 6.0.0.0
 // Required fields: mediaFolderConfigurationId, mediaThumbnailSizeId
 type MediaFolderConfigurationMediaThumbnailSize struct {
-	Id                         *string                   `json:"id,omitempty"`
+	Id                         string                    `json:"id,omitempty"`
 	MediaFolderConfiguration   *MediaFolderConfiguration `json:"mediaFolderConfiguration,omitempty"`
-	MediaFolderConfigurationId *string                   `json:"mediaFolderConfigurationId,omitempty"`
+	MediaFolderConfigurationId string                    `json:"mediaFolderConfigurationId,omitempty"`
 	MediaThumbnailSize         *MediaThumbnailSize       `json:"mediaThumbnailSize,omitempty"`
-	MediaThumbnailSizeId       *string                   `json:"mediaThumbnailSizeId,omitempty"`
+	MediaThumbnailSizeId       string                    `json:"mediaThumbnailSizeId,omitempty"`
 }
 
 // MediaTag data structure
 // Added since version: 6.0.0.0
 // Required fields: mediaId, tagId
 type MediaTag struct {
-	Id      *string `json:"id,omitempty"`
-	Media   *Media  `json:"media,omitempty"`
-	MediaId *string `json:"mediaId,omitempty"`
-	Tag     *Tag    `json:"tag,omitempty"`
-	TagId   *string `json:"tagId,omitempty"`
+	Id      string `json:"id,omitempty"`
+	Media   *Media `json:"media,omitempty"`
+	MediaId string `json:"mediaId,omitempty"`
+	Tag     *Tag   `json:"tag,omitempty"`
+	TagId   string `json:"tagId,omitempty"`
 }
 
 // MediaThumbnail data structure
@@ -129,13 +129,13 @@ type MediaTag struct {
 type MediaThumbnail struct {
 	CreatedAt    *time.Time     `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField `json:"customFields,omitempty"`
-	Height       *int           `json:"height,omitempty"`
-	Id           *string        `json:"id,omitempty"`
+	Height       int            `json:"height,omitempty"`
+	Id           string         `json:"id,omitempty"`
 	Media        *Media         `json:"media,omitempty"`
-	MediaId      *string        `json:"mediaId,omitempty"`
+	MediaId      string         `json:"mediaId,omitempty"`
 	UpdatedAt    *time.Time     `json:"updatedAt,omitempty"`
 	Url          *string        `json:"url,omitempty"`
-	Width        *int           `json:"width,omitempty"`
+	Width        int            `json:"width,omitempty"`
 }
 
 // MediaThumbnailSize data structure
@@ -144,9 +144,9 @@ type MediaThumbnail struct {
 type MediaThumbnailSize struct {
 	CreatedAt                 *time.Time                `json:"createdAt,omitempty"`
 	CustomFields              *[]CustomField            `json:"customFields,omitempty"`
-	Height                    *int                      `json:"height,omitempty"`
-	Id                        *string                   `json:"id,omitempty"`
+	Height                    int                       `json:"height,omitempty"`
+	Id                        string                    `json:"id,omitempty"`
 	MediaFolderConfigurations *MediaFolderConfiguration `json:"mediaFolderConfigurations,omitempty"`
 	UpdatedAt                 *time.Time                `json:"updatedAt,omitempty"`
-	Width                     *int                      `json:"width,omitempty"`
+	Width                     int                       `json:"width,omitempty"`
 }

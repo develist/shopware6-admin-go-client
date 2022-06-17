@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // Webhook data structure
 // Added since version: 6.3.1.0
@@ -13,12 +13,12 @@ type Webhook struct {
 	App        *App       `json:"app,omitempty"`
 	AppId      *string    `json:"appId,omitempty"`
 	CreatedAt  *time.Time `json:"createdAt,omitempty"`
-	ErrorCount *int       `json:"errorCount,omitempty"`
-	EventName  *string    `json:"eventName,omitempty"`
-	Id         *string    `json:"id,omitempty"`
-	Name       *string    `json:"name,omitempty"`
+	ErrorCount int        `json:"errorCount,omitempty"`
+	EventName  string     `json:"eventName,omitempty"`
+	Id         string     `json:"id,omitempty"`
+	Name       string     `json:"name,omitempty"`
 	UpdatedAt  *time.Time `json:"updatedAt,omitempty"`
-	Url        *string    `json:"url,omitempty"`
+	Url        string     `json:"url,omitempty"`
 }
 
 // WebhookEventLog data structure
@@ -29,9 +29,9 @@ type WebhookEventLog struct {
 	AppVersion           *string        `json:"appVersion,omitempty"`
 	CreatedAt            *time.Time     `json:"createdAt,omitempty"`
 	CustomFields         *[]CustomField `json:"customFields,omitempty"`
-	DeliveryStatus       *string        `json:"deliveryStatus,omitempty"`
-	EventName            *string        `json:"eventName,omitempty"`
-	Id                   *string        `json:"id,omitempty"`
+	DeliveryStatus       string         `json:"deliveryStatus,omitempty"`
+	EventName            string         `json:"eventName,omitempty"`
+	Id                   string         `json:"id,omitempty"`
 	ProcessingTime       *int           `json:"processingTime,omitempty"`
 	RequestContent       *interface{}   `json:"requestContent,omitempty"`  // map[type:object]
 	ResponseContent      *interface{}   `json:"responseContent,omitempty"` // map[type:object]
@@ -39,6 +39,6 @@ type WebhookEventLog struct {
 	ResponseStatusCode   *int           `json:"responseStatusCode,omitempty"`
 	Timestamp            *int           `json:"timestamp,omitempty"`
 	UpdatedAt            *time.Time     `json:"updatedAt,omitempty"`
-	Url                  *string        `json:"url,omitempty"`
-	WebhookName          *string        `json:"webhookName,omitempty"`
+	Url                  string         `json:"url,omitempty"`
+	WebhookName          string         `json:"webhookName,omitempty"`
 }

@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // CustomField data structure
 // Added since version: 6.0.0.0
@@ -14,10 +14,10 @@ type CustomField struct {
 	CreatedAt                 *time.Time                `json:"createdAt,omitempty"`
 	CustomFieldSet            *CustomFieldSet           `json:"customFieldSet,omitempty"`
 	CustomFieldSetId          *string                   `json:"customFieldSetId,omitempty"`
-	Id                        *string                   `json:"id,omitempty"`
-	Name                      *string                   `json:"name,omitempty"`
+	Id                        string                    `json:"id,omitempty"`
+	Name                      string                    `json:"name,omitempty"`
 	ProductSearchConfigFields *ProductSearchConfigField `json:"productSearchConfigFields,omitempty"`
-	Type                      *string                   `json:"type,omitempty"`
+	Type                      string                    `json:"type,omitempty"`
 	UpdatedAt                 *time.Time                `json:"updatedAt,omitempty"`
 }
 
@@ -32,8 +32,8 @@ type CustomFieldSet struct {
 	CreatedAt    *time.Time              `json:"createdAt,omitempty"`
 	CustomFields *[]CustomField          `json:"customFields,omitempty"`
 	Global       *bool                   `json:"global,omitempty"`
-	Id           *string                 `json:"id,omitempty"`
-	Name         *string                 `json:"name,omitempty"`
+	Id           string                  `json:"id,omitempty"`
+	Name         string                  `json:"name,omitempty"`
 	Position     *int                    `json:"position,omitempty"`
 	Products     *Product                `json:"products,omitempty"`
 	Relations    *CustomFieldSetRelation `json:"relations,omitempty"`
@@ -46,8 +46,8 @@ type CustomFieldSet struct {
 type CustomFieldSetRelation struct {
 	CreatedAt        *time.Time      `json:"createdAt,omitempty"`
 	CustomFieldSet   *CustomFieldSet `json:"customFieldSet,omitempty"`
-	CustomFieldSetId *string         `json:"customFieldSetId,omitempty"`
-	EntityName       *string         `json:"entityName,omitempty"`
-	Id               *string         `json:"id,omitempty"`
+	CustomFieldSetId string          `json:"customFieldSetId,omitempty"`
+	EntityName       string          `json:"entityName,omitempty"`
+	Id               string          `json:"id,omitempty"`
 	UpdatedAt        *time.Time      `json:"updatedAt,omitempty"`
 }

@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-06 18:44:04 UTC
+// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
 
 // PaymentMethod data structure
 // Added since version: 6.0.0.0
@@ -20,10 +20,10 @@ type PaymentMethod struct {
 	Description                    *string           `json:"description,omitempty"`
 	DistinguishableName            *string           `json:"distinguishableName,omitempty"`
 	FormattedHandlerIdentifier     *string           `json:"formattedHandlerIdentifier,omitempty"`
-	Id                             *string           `json:"id,omitempty"`
+	Id                             string            `json:"id,omitempty"`
 	Media                          *Media            `json:"media,omitempty"`
 	MediaId                        *string           `json:"mediaId,omitempty"`
-	Name                           *string           `json:"name,omitempty"`
+	Name                           string            `json:"name,omitempty"`
 	OrderTransactions              *OrderTransaction `json:"orderTransactions,omitempty"`
 	Plugin                         *Plugin           `json:"plugin,omitempty"`
 	PluginId                       *string           `json:"pluginId,omitempty"`
