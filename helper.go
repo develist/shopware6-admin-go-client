@@ -2,7 +2,8 @@ package shopware6_admin_go_client
 
 import (
 	"encoding/json"
-	"github.com/develist/shopware6-admin-go-client/entity"
+	"github.com/develist/shopware6-admin-go-client/response"
+	"github.com/develist/shopware6-admin-go-client/search"
 	"io/ioutil"
 	"net/http"
 	"regexp"
@@ -18,31 +19,31 @@ func toKebabCase(str string) string {
 	return strings.ToLower(snake)
 }
 
-func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, *entity.ApiErrors) {
+func queryArray[T any](httpClient *http.Client, request *http.Request) (*[]T, *response.ApiErrors) {
 	body, err := getBody(httpClient, request)
 	if err != nil {
 		return nil, err
 	}
-	var results entity.Results[T]
+	var results search.Results[T]
 	if err := json.Unmarshal(*body, &results); err != nil {
 		return nil, createAPIErrors(err)
 	}
 	return &results.Data, nil
 }
 
-func querySingle[T any](httpClient *http.Client, request *http.Request) (*T, *entity.ApiErrors) {
+func querySingle[T any](httpClient *http.Client, request *http.Request) (*T, *response.ApiErrors) {
 	body, err := getBody(httpClient, request)
 	if err != nil {
 		return nil, err
 	}
-	var result entity.Result[T]
+	var result search.Result[T]
 	if err := json.Unmarshal(*body, &result); err != nil {
 		return nil, createAPIErrors(err)
 	}
 	return &result.Data, nil
 }
 
-func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *entity.ApiErrors) {
+func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *response.ApiErrors) {
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Accept", "application/json")
 	resp, err := httpClient.Do(request)
@@ -68,11 +69,11 @@ func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *entity.A
 	}
 }
 
-func createAPIErrorsBytes(err *[]byte) *entity.ApiErrors {
+func createAPIErrorsBytes(err *[]byte) *response.ApiErrors {
 	if err == nil {
 		return nil
 	}
-	var result entity.ApiErrors
+	var result response.ApiErrors
 	if unmarshalErr := json.Unmarshal(*err, &result); unmarshalErr != nil {
 		result.Raw = string(*err)
 		return &result
@@ -82,7 +83,7 @@ func createAPIErrorsBytes(err *[]byte) *entity.ApiErrors {
 	}
 }
 
-func createAPIErrors(err error) *entity.ApiErrors {
+func createAPIErrors(err error) *response.ApiErrors {
 	data := []byte(err.Error())
 	return createAPIErrorsBytes(&data)
 }

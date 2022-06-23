@@ -3,7 +3,8 @@ package shopware6_admin_go_client
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/develist/shopware6-admin-go-client/entity"
+	"github.com/develist/shopware6-admin-go-client/response"
+	"github.com/develist/shopware6-admin-go-client/search"
 	"net/http"
 	"reflect"
 	"strings"
@@ -33,7 +34,7 @@ func CreateEntityRepository[T any](apiBaseUrl string, httpClient *http.Client) *
 	return &EntityRepository[T]{endpoints, client}
 }
 
-func (g *EntityRepository[T]) GetDetail(id string) (*T, *entity.ApiErrors) {
+func (g *EntityRepository[T]) GetDetail(id string) (*T, *response.ApiErrors) {
 	url := g.endpoints.entity + "/" + id
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
@@ -42,7 +43,7 @@ func (g *EntityRepository[T]) GetDetail(id string) (*T, *entity.ApiErrors) {
 	return querySingle[T](g.httpClient, req)
 }
 
-func (g *EntityRepository[T]) GetList() (*[]T, *entity.ApiErrors) {
+func (g *EntityRepository[T]) GetList() (*[]T, *response.ApiErrors) {
 	req, err := http.NewRequest(http.MethodGet, g.endpoints.entity, nil)
 	if err != nil {
 		return nil, createAPIErrors(err)
@@ -50,7 +51,7 @@ func (g *EntityRepository[T]) GetList() (*[]T, *entity.ApiErrors) {
 	return queryArray[T](g.httpClient, req)
 }
 
-func (g *EntityRepository[T]) Search(criteria entity.Criteria) (*[]T, *entity.ApiErrors) {
+func (g *EntityRepository[T]) Search(criteria search.Criteria) (*[]T, *response.ApiErrors) {
 	criteriaJSON, err := json.Marshal(criteria)
 	if err != nil {
 		return nil, createAPIErrors(err)
@@ -62,7 +63,7 @@ func (g *EntityRepository[T]) Search(criteria entity.Criteria) (*[]T, *entity.Ap
 	return queryArray[T](g.httpClient, req)
 }
 
-func (g *EntityRepository[T]) SearchIds(criteria entity.Criteria) (*[]string, *entity.ApiErrors) {
+func (g *EntityRepository[T]) SearchIds(criteria search.Criteria) (*[]string, *response.ApiErrors) {
 	criteriaJSON, err := json.Marshal(criteria)
 	if err != nil {
 		return nil, createAPIErrors(err)
@@ -74,7 +75,7 @@ func (g *EntityRepository[T]) SearchIds(criteria entity.Criteria) (*[]string, *e
 	return queryArray[string](g.httpClient, req)
 }
 
-func (g *EntityRepository[T]) Create(entity *T) *entity.ApiErrors {
+func (g *EntityRepository[T]) Create(entity *T) *response.ApiErrors {
 	entityJSON, err := json.Marshal(entity)
 	if err != nil {
 		return createAPIErrors(err)
@@ -87,7 +88,7 @@ func (g *EntityRepository[T]) Create(entity *T) *entity.ApiErrors {
 	return apiError
 }
 
-func (g *EntityRepository[T]) Update(id string, entity *T) *entity.ApiErrors {
+func (g *EntityRepository[T]) Update(id string, entity *T) *response.ApiErrors {
 	url := g.endpoints.entity + "/" + id
 	entityJSON, err := json.Marshal(entity)
 	if err != nil {
@@ -101,7 +102,7 @@ func (g *EntityRepository[T]) Update(id string, entity *T) *entity.ApiErrors {
 	return apiError
 }
 
-func (g *EntityRepository[T]) Delete(id string) *entity.ApiErrors {
+func (g *EntityRepository[T]) Delete(id string) *response.ApiErrors {
 	url := g.endpoints.entity + "/" + id
 	req, err := http.NewRequest(http.MethodDelete, url, nil)
 	if err != nil {

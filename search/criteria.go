@@ -1,4 +1,4 @@
-package entity
+package search
 
 // own structs
 

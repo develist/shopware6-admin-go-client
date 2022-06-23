@@ -1,4 +1,4 @@
-package entity
+package response
 
 // own structs
 // refactor to shopware structs
@@ -18,7 +18,7 @@ type ApiError struct {
 }
 
 type ApiErrorSource struct {
-	Pointer string `json:"po*inter,omitempty"`
+	Pointer string `json:"pointer,omitempty"`
 }
 
 type ApiErrorMeta struct {
