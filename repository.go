@@ -10,6 +10,10 @@ import (
 	"strings"
 )
 
+const slash string = "/"
+const searchPath string = "search"
+const searchIdsPath string = "search-ids"
+
 type EntityRepository[T any] struct {
 	endpoints  endpoints
 	httpClient *http.Client
@@ -27,15 +31,15 @@ func CreateEntityRepository[T any](apiBaseUrl string, httpClient *http.Client) *
 	var a T
 	endpoint := strings.ToLower(toKebabCase(reflect.TypeOf(a).Name()))
 	client := httpClient
-	entityEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/" + endpoint
-	searchEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/search/" + endpoint
-	searchIdsEndPoint := strings.TrimRight(apiBaseUrl, "/") + "/search-ids/" + endpoint
+	entityEndPoint := strings.TrimRight(apiBaseUrl, slash) + slash + endpoint
+	searchEndPoint := strings.TrimRight(apiBaseUrl, slash) + slash + searchPath + slash + endpoint
+	searchIdsEndPoint := strings.TrimRight(apiBaseUrl, slash) + slash + searchIdsPath + slash + endpoint
 	endpoints := endpoints{entityEndPoint, searchEndPoint, searchIdsEndPoint}
 	return &EntityRepository[T]{endpoints, client}
 }
 
 func (g *EntityRepository[T]) GetDetail(id string) (*T, *response.ApiErrors) {
-	url := g.endpoints.entity + "/" + id
+	url := g.endpoints.entity + slash + id
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, createAPIErrors(err)
@@ -89,7 +93,7 @@ func (g *EntityRepository[T]) Create(entity *T) *response.ApiErrors {
 }
 
 func (g *EntityRepository[T]) Update(id string, entity *T) *response.ApiErrors {
-	url := g.endpoints.entity + "/" + id
+	url := g.endpoints.entity + slash + id
 	entityJSON, err := json.Marshal(entity)
 	if err != nil {
 		return createAPIErrors(err)
@@ -103,7 +107,7 @@ func (g *EntityRepository[T]) Update(id string, entity *T) *response.ApiErrors {
 }
 
 func (g *EntityRepository[T]) Delete(id string) *response.ApiErrors {
-	url := g.endpoints.entity + "/" + id
+	url := g.endpoints.entity + slash + id
 	req, err := http.NewRequest(http.MethodDelete, url, nil)
 	if err != nil {
 		return createAPIErrors(err)

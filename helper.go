@@ -10,6 +10,10 @@ import (
 	"strings"
 )
 
+const contentTypeHeader string = "Content-Type"
+const acceptHeader string = "Accept"
+const mimeTypeJson string = "application/json"
+
 var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
 var matchAllCap = regexp.MustCompile("([a-z0-9])([A-Z])")
 
@@ -44,8 +48,8 @@ func querySingle[T any](httpClient *http.Client, request *http.Request) (*T, *re
 }
 
 func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *response.ApiErrors) {
-	request.Header.Set("Content-Type", "application/json")
-	request.Header.Set("Accept", "application/json")
+	request.Header.Set(contentTypeHeader, mimeTypeJson)
+	request.Header.Set(acceptHeader, mimeTypeJson)
 	resp, err := httpClient.Do(request)
 	if resp != nil {
 		defer resp.Body.Close()
@@ -60,9 +64,9 @@ func getBody(httpClient *http.Client, request *http.Request) (*[]byte, *response
 	}
 
 	switch resp.StatusCode {
-	case 200:
+	case http.StatusOK:
 		return &body, nil
-	case 204:
+	case http.StatusNoContent:
 		return &body, nil
 	default:
 		return nil, createAPIErrorsBytes(&body)
