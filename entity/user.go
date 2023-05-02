@@ -3,11 +3,11 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // User data structure
 // Added since version: 6.0.0.0
-// Required fields: localeId, username, firstName, lastName, email, createdAt
+// Required fields: localeId, username, firstName, lastName, email, timeZone, createdAt
 type User struct {
 	AccessKeys                 *UserAccessKey       `json:"accessKeys,omitempty"`
 	AclRoles                   *AclRole             `json:"aclRoles,omitempty"`
@@ -17,9 +17,11 @@ type User struct {
 	AvatarMedia                *Media               `json:"avatarMedia,omitempty"`
 	Configs                    *UserConfig          `json:"configs,omitempty"`
 	CreatedAt                  *time.Time           `json:"createdAt,omitempty"`
+	CreatedCustomers           *Customer            `json:"createdCustomers,omitempty"`
 	CreatedOrders              *Order               `json:"createdOrders,omitempty"`
 	CustomFields               *[]CustomField       `json:"customFields,omitempty"`
 	Email                      string               `json:"email,omitempty"`
+	Extensions                 *interface{}         `json:"extensions,omitempty"` // map[properties:map[createdNotifications:map[properties:map[data:map[items:map[properties:map[id:map[example:122aedc28e5e496ba5041f9725147253 type:string] type:map[example:notification type:string]] type:object] type:array] links:map[properties:map[related:map[example:/user/3129263dae954c8bbba1ab4a779295ee/createdNotifications format:uri-reference type:string]] type:object]] type:object]] type:object]
 	FirstName                  string               `json:"firstName,omitempty"`
 	Id                         string               `json:"id,omitempty"`
 	ImportExportLogEntries     *ImportExportLog     `json:"importExportLogEntries,omitempty"`
@@ -30,8 +32,10 @@ type User struct {
 	Media                      *Media               `json:"media,omitempty"`
 	RecoveryUser               *UserRecovery        `json:"recoveryUser,omitempty"`
 	StateMachineHistoryEntries *StateMachineHistory `json:"stateMachineHistoryEntries,omitempty"`
+	TimeZone                   string               `json:"timeZone,omitempty"`
 	Title                      *string              `json:"title,omitempty"`
 	UpdatedAt                  *time.Time           `json:"updatedAt,omitempty"`
+	UpdatedCustomers           *Customer            `json:"updatedCustomers,omitempty"`
 	UpdatedOrders              *Order               `json:"updatedOrders,omitempty"`
 	Username                   string               `json:"username,omitempty"`
 }
@@ -49,7 +53,6 @@ type UserAccessKey struct {
 	UpdatedAt       *time.Time     `json:"updatedAt,omitempty"`
 	User            *User          `json:"user,omitempty"`
 	UserId          string         `json:"userId,omitempty"`
-	WriteAccess     *bool          `json:"writeAccess,omitempty"`
 }
 
 // UserConfig data structure
