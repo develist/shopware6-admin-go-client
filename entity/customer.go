@@ -3,11 +3,11 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Customer data structure
 // Added since version: 6.0.0.0
-// Required fields: groupId, defaultPaymentMethodId, salesChannelId, languageId, defaultBillingAddressId, defaultShippingAddressId, customerNumber, salutationId, firstName, lastName, email, createdAt
+// Required fields: groupId, defaultPaymentMethodId, salesChannelId, languageId, defaultBillingAddressId, defaultShippingAddressId, customerNumber, firstName, lastName, email, createdAt
 type Customer struct {
 	Active                   *bool             `json:"active,omitempty"`
 	Addresses                *CustomerAddress  `json:"addresses,omitempty"`
@@ -19,6 +19,8 @@ type Customer struct {
 	CampaignCode             *string           `json:"campaignCode,omitempty"`
 	Company                  *string           `json:"company,omitempty"`
 	CreatedAt                *time.Time        `json:"createdAt,omitempty"`
+	CreatedBy                *User             `json:"createdBy,omitempty"`
+	CreatedById              *string           `json:"createdById,omitempty"`
 	CustomFields             *[]CustomField    `json:"customFields,omitempty"`
 	CustomerNumber           string            `json:"customerNumber,omitempty"`
 	DefaultBillingAddress    *CustomerAddress  `json:"defaultBillingAddress,omitempty"`
@@ -31,6 +33,7 @@ type Customer struct {
 	DoubleOptInEmailSentDate *time.Time        `json:"doubleOptInEmailSentDate,omitempty"`
 	DoubleOptInRegistration  *bool             `json:"doubleOptInRegistration,omitempty"`
 	Email                    string            `json:"email,omitempty"`
+	Extensions               *interface{}      `json:"extensions,omitempty"` // map[properties:map[customPrice:map[properties:map[data:map[items:map[properties:map[id:map[example:90f4547e39cf4d73bc6cbad4e48cab51 type:string] type:map[example:custom_price type:string]] type:object] type:array] links:map[properties:map[related:map[example:/customer/92432ac447bf400b85cc38fb47c2f919/customPrice format:uri-reference type:string]] type:object]] type:object] delayActions:map[properties:map[data:map[items:map[properties:map[id:map[example:adf483dc8c5643d0901703ab3ddfa256 type:string] type:map[example:swag_delay_action type:string]] type:object] type:array] links:map[properties:map[related:map[example:/customer/92432ac447bf400b85cc38fb47c2f919/delayActions format:uri-reference type:string]] type:object]] type:object]] type:object]
 	FirstLogin               *time.Time        `json:"firstLogin,omitempty"`
 	FirstName                string            `json:"firstName,omitempty"`
 	Group                    *CustomerGroup    `json:"group,omitempty"`
@@ -45,9 +48,9 @@ type Customer struct {
 	LastOrderDate            *time.Time        `json:"lastOrderDate,omitempty"`
 	LastPaymentMethod        *PaymentMethod    `json:"lastPaymentMethod,omitempty"`
 	LastPaymentMethodId      *string           `json:"lastPaymentMethodId,omitempty"`
-	Newsletter               *bool             `json:"newsletter,omitempty"`
 	OrderCount               *int              `json:"orderCount,omitempty"`
 	OrderCustomers           *OrderCustomer    `json:"orderCustomers,omitempty"`
+	OrderTotalAmount         *float64          `json:"orderTotalAmount,omitempty"`
 	ProductReviews           *ProductReview    `json:"productReviews,omitempty"`
 	Promotions               *Promotion        `json:"promotions,omitempty"`
 	RecoveryCustomer         *CustomerRecovery `json:"recoveryCustomer,omitempty"`
@@ -57,18 +60,20 @@ type Customer struct {
 	SalesChannel             *SalesChannel     `json:"salesChannel,omitempty"`
 	SalesChannelId           string            `json:"salesChannelId,omitempty"`
 	Salutation               *Salutation       `json:"salutation,omitempty"`
-	SalutationId             string            `json:"salutationId,omitempty"`
+	SalutationId             *string           `json:"salutationId,omitempty"`
 	TagIds                   *[]string         `json:"tagIds,omitempty"` // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
 	Tags                     *Tag              `json:"tags,omitempty"`
 	Title                    *string           `json:"title,omitempty"`
 	UpdatedAt                *time.Time        `json:"updatedAt,omitempty"`
+	UpdatedBy                *User             `json:"updatedBy,omitempty"`
+	UpdatedById              *string           `json:"updatedById,omitempty"`
 	VatIds                   *[]string         `json:"vatIds,omitempty"` // map[items:map[type:string] type:array]
 	Wishlists                *CustomerWishlist `json:"wishlists,omitempty"`
 }
 
 // CustomerAddress data structure
 // Added since version: 6.0.0.0
-// Required fields: customerId, countryId, salutationId, firstName, lastName, zipcode, city, street, createdAt
+// Required fields: customerId, countryId, firstName, lastName, city, street, createdAt
 type CustomerAddress struct {
 	AdditionalAddressLine1 *string        `json:"additionalAddressLine1,omitempty"`
 	AdditionalAddressLine2 *string        `json:"additionalAddressLine2,omitempty"`
@@ -88,11 +93,11 @@ type CustomerAddress struct {
 	LastName               string         `json:"lastName,omitempty"`
 	PhoneNumber            *string        `json:"phoneNumber,omitempty"`
 	Salutation             *Salutation    `json:"salutation,omitempty"`
-	SalutationId           string         `json:"salutationId,omitempty"`
+	SalutationId           *string        `json:"salutationId,omitempty"`
 	Street                 string         `json:"street,omitempty"`
 	Title                  *string        `json:"title,omitempty"`
 	UpdatedAt              *time.Time     `json:"updatedAt,omitempty"`
-	Zipcode                string         `json:"zipcode,omitempty"`
+	Zipcode                *string        `json:"zipcode,omitempty"`
 }
 
 // CustomerGroup data structure

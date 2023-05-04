@@ -3,13 +3,13 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // ImportExportFile data structure
 // Added since version: 6.0.0.0
-// Required fields: originalName, path, expireDate, accessToken, createdAt
+// Required fields: originalName, path, expireDate, createdAt
 type ImportExportFile struct {
-	AccessToken  string           `json:"accessToken,omitempty"`
+	AccessToken  *string          `json:"accessToken,omitempty"`
 	CreatedAt    *time.Time       `json:"createdAt,omitempty"`
 	ExpireDate   *time.Time       `json:"expireDate,omitempty"`
 	Id           string           `json:"id,omitempty"`
@@ -37,6 +37,7 @@ type ImportExportLog struct {
 	ProfileId           *string              `json:"profileId,omitempty"`
 	ProfileName         *string              `json:"profileName,omitempty"`
 	Records             int                  `json:"records,omitempty"`
+	Result              *interface{}         `json:"result,omitempty"` // map[type:object]
 	State               string               `json:"state,omitempty"`
 	UpdatedAt           *time.Time           `json:"updatedAt,omitempty"`
 	User                *User                `json:"user,omitempty"`
@@ -61,5 +62,7 @@ type ImportExportProfile struct {
 	SourceEntity     string           `json:"sourceEntity,omitempty"`
 	SystemDefault    *bool            `json:"systemDefault,omitempty"`
 	Translated       *interface{}     `json:"translated,omitempty"` // map[type:object]
+	Type             *string          `json:"type,omitempty"`
+	UpdateBy         *interface{}     `json:"updateBy,omitempty"` // map[type:object]
 	UpdatedAt        *time.Time       `json:"updatedAt,omitempty"`
 }

@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Product data structure
 // Added since version: 6.0.0.0
@@ -17,15 +17,14 @@ type Product struct {
 	CanonicalProductId            *string                              `json:"canonicalProductId,omitempty"`
 	Categories                    *Category                            `json:"categories,omitempty"`
 	CategoriesRo                  *Category                            `json:"categoriesRo,omitempty"`
-	CategoryIds                   *[]string                            `json:"categoryIds,omitempty"`   // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
-	CategoryTree                  *[]string                            `json:"categoryTree,omitempty"`  // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
-	CheapestPrice                 *interface{}                         `json:"cheapestPrice,omitempty"` // map[readOnly:true type:object]
+	CategoryIds                   *[]string                            `json:"categoryIds,omitempty"`  // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
+	CategoryTree                  *[]string                            `json:"categoryTree,omitempty"` // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
 	ChildCount                    *int                                 `json:"childCount,omitempty"`
 	Children                      *Product                             `json:"children,omitempty"`
 	CmsPage                       *CmsPage                             `json:"cmsPage,omitempty"`
 	CmsPageId                     *string                              `json:"cmsPageId,omitempty"`
 	CmsPageVersionId              *string                              `json:"cmsPageVersionId,omitempty"`
-	ConfiguratorGroupConfig       *interface{}                         `json:"configuratorGroupConfig,omitempty"` // map[type:object]
+	ConfiguratorGroupConfig       *interface{}                         `json:"configuratorGroupConfig,omitempty"` // map[deprecated:true type:object]
 	ConfiguratorSettings          *ProductConfiguratorSetting          `json:"configuratorSettings,omitempty"`
 	Cover                         *ProductMedia                        `json:"cover,omitempty"`
 	CoverId                       *string                              `json:"coverId,omitempty"`
@@ -40,7 +39,9 @@ type Product struct {
 	DeliveryTimeId                *string                              `json:"deliveryTimeId,omitempty"`
 	Description                   *string                              `json:"description,omitempty"`
 	DisplayGroup                  *string                              `json:"displayGroup,omitempty"`
+	DisplayParent                 *bool                                `json:"displayParent,omitempty"`
 	Ean                           *string                              `json:"ean,omitempty"`
+	Extensions                    *interface{}                         `json:"extensions,omitempty"` // map[properties:map[customPrice:map[properties:map[data:map[items:map[properties:map[id:map[example:aaff29ed326444d09a4c668893f72fed type:string] type:map[example:custom_price type:string]] type:object] type:array] links:map[properties:map[related:map[example:/product/82ba29c8b85e49afa5eedf80f233b768/customPrice format:uri-reference type:string]] type:object]] type:object]] type:object]
 	FeatureSet                    *ProductFeatureSet                   `json:"featureSet,omitempty"`
 	FeatureSetId                  *string                              `json:"featureSetId,omitempty"`
 	Height                        *float64                             `json:"height,omitempty"`
@@ -89,6 +90,7 @@ type Product struct {
 	ShippingFree                  *bool                                `json:"shippingFree,omitempty"`
 	SlotConfig                    *interface{}                         `json:"slotConfig,omitempty"` // map[type:object]
 	Stock                         int                                  `json:"stock,omitempty"`
+	StreamIds                     *[]string                            `json:"streamIds,omitempty"` // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
 	Streams                       *ProductStream                       `json:"streams,omitempty"`
 	TagIds                        *[]string                            `json:"tagIds,omitempty"` // map[items:map[pattern:^[0-9a-f]{32}$ type:string] readOnly:true type:array]
 	Tags                          *Tag                                 `json:"tags,omitempty"`
@@ -98,8 +100,9 @@ type Product struct {
 	Unit                          *Unit                                `json:"unit,omitempty"`
 	UnitId                        *string                              `json:"unitId,omitempty"`
 	UpdatedAt                     *time.Time                           `json:"updatedAt,omitempty"`
-	VariantRestrictions           *interface{}                         `json:"variantRestrictions,omitempty"` // map[type:object]
-	Variation                     *[]string                            `json:"variation,omitempty"`           // map[items:map[type:string] type:array]
+	VariantListingConfig          *interface{}                         `json:"variantListingConfig,omitempty"` // map[type:object]
+	VariantRestrictions           *interface{}                         `json:"variantRestrictions,omitempty"`  // map[type:object]
+	Variation                     *[]string                            `json:"variation,omitempty"`            // map[items:map[type:string] type:array]
 	VersionId                     *string                              `json:"versionId,omitempty"`
 	Visibilities                  *ProductVisibility                   `json:"visibilities,omitempty"`
 	Weight                        *float64                             `json:"weight,omitempty"`
@@ -222,6 +225,7 @@ type ProductExport struct {
 	Id                       string              `json:"id,omitempty"`
 	IncludeVariants          *bool               `json:"includeVariants,omitempty"`
 	Interval                 int                 `json:"interval,omitempty"`
+	IsRunning                *bool               `json:"isRunning,omitempty"`
 	PausedSchedule           *bool               `json:"pausedSchedule,omitempty"`
 	ProductStream            *ProductStream      `json:"productStream,omitempty"`
 	ProductStreamId          string              `json:"productStreamId,omitempty"`
@@ -281,6 +285,7 @@ type ProductManufacturer struct {
 // Added since version: 6.0.0.0
 // Required fields: productId, mediaId, createdAt
 type ProductMedia struct {
+	CoverProducts    *Product       `json:"coverProducts,omitempty"`
 	CreatedAt        *time.Time     `json:"createdAt,omitempty"`
 	CustomFields     *[]CustomField `json:"customFields,omitempty"`
 	Id               string         `json:"id,omitempty"`

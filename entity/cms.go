@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // CmsBlock data structure
 // Added since version: 6.0.0.0
@@ -36,18 +36,19 @@ type CmsBlock struct {
 
 // CmsPage data structure
 // Added since version: 6.0.0.0
-// Required fields: type, createdAt, name
+// Required fields: type, createdAt
 type CmsPage struct {
 	Categories        *Category      `json:"categories,omitempty"`
 	Config            *interface{}   `json:"config,omitempty"` // map[properties:map[backgroundColor:map[type:string]] type:object]
 	CreatedAt         *time.Time     `json:"createdAt,omitempty"`
+	CssClass          *string        `json:"cssClass,omitempty"`
 	CustomFields      *[]CustomField `json:"customFields,omitempty"`
 	Entity            *string        `json:"entity,omitempty"`
 	HomeSalesChannels *SalesChannel  `json:"homeSalesChannels,omitempty"`
 	Id                string         `json:"id,omitempty"`
 	LandingPages      *LandingPage   `json:"landingPages,omitempty"`
 	Locked            *bool          `json:"locked,omitempty"`
-	Name              string         `json:"name,omitempty"`
+	Name              *string        `json:"name,omitempty"`
 	PreviewMedia      *Media         `json:"previewMedia,omitempty"`
 	PreviewMediaId    *string        `json:"previewMediaId,omitempty"`
 	Products          *Product       `json:"products,omitempty"`

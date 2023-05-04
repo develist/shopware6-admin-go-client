@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Category data structure
 // Added since version: 6.0.0.0
@@ -13,7 +13,7 @@ type Category struct {
 	AfterCategoryId         *string        `json:"afterCategoryId,omitempty"`
 	AfterCategoryVersionId  *string        `json:"afterCategoryVersionId,omitempty"`
 	AutoIncrement           *int           `json:"autoIncrement,omitempty"`
-	Breadcrumb              *interface{}   `json:"breadcrumb,omitempty"` // map[items:map[type:string] readOnly:true type:array]
+	Breadcrumb              *interface{}   `json:"breadcrumb,omitempty"` // map[items:map[additionalProperties:false] readOnly:true type:array]
 	ChildCount              *int           `json:"childCount,omitempty"`
 	Children                *Category      `json:"children,omitempty"`
 	CmsPage                 *CmsPage       `json:"cmsPage,omitempty"`

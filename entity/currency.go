@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Currency data structure
 // Added since version: 6.0.0.0
@@ -27,6 +27,7 @@ type Currency struct {
 	SalesChannels                  *SalesChannel            `json:"salesChannels,omitempty"`
 	ShortName                      string                   `json:"shortName,omitempty"`
 	Symbol                         string                   `json:"symbol,omitempty"`
+	TaxFreeFrom                    *float64                 `json:"taxFreeFrom,omitempty"`
 	TotalRounding                  *Rounding                `json:"totalRounding,omitempty"` // map[properties:map[decimals:map[format:int64 type:integer] interval:map[format:float type:number] roundForNet:map[type:boolean]] type:object]
 	Translated                     *interface{}             `json:"translated,omitempty"`    // map[type:object]
 	UpdatedAt                      *time.Time               `json:"updatedAt,omitempty"`

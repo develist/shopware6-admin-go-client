@@ -3,11 +3,11 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Promotion data structure
 // Added since version: 6.0.0.0
-// Required fields: active, exclusive, useCodes, useIndividualCodes, useSetGroups, createdAt, name
+// Required fields: active, priority, exclusive, useCodes, useIndividualCodes, useSetGroups, preventCombination, createdAt, name
 type Promotion struct {
 	Active                    bool                     `json:"active,omitempty"`
 	CartRules                 *Rule                    `json:"cartRules,omitempty"`
@@ -25,10 +25,13 @@ type Promotion struct {
 	MaxRedemptionsPerCustomer *int                     `json:"maxRedemptionsPerCustomer,omitempty"`
 	Name                      string                   `json:"name,omitempty"`
 	OrderCount                *int                     `json:"orderCount,omitempty"`
+	OrderLineItems            *OrderLineItem           `json:"orderLineItems,omitempty"`
 	OrderRules                *Rule                    `json:"orderRules,omitempty"`
 	OrdersPerCustomerCount    *interface{}             `json:"ordersPerCustomerCount,omitempty"` // map[readOnly:true type:object]
 	PersonaCustomers          *Customer                `json:"personaCustomers,omitempty"`
 	PersonaRules              *Rule                    `json:"personaRules,omitempty"`
+	PreventCombination        bool                     `json:"preventCombination,omitempty"`
+	Priority                  int                      `json:"priority,omitempty"`
 	SalesChannels             *PromotionSalesChannel   `json:"salesChannels,omitempty"`
 	Setgroups                 *PromotionSetgroup       `json:"setgroups,omitempty"`
 	Translated                *interface{}             `json:"translated,omitempty"` // map[type:object]

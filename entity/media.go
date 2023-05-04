@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Media data structure
 // Added since version: 6.0.0.0
@@ -20,6 +20,7 @@ type Media struct {
 	CustomFields                *[]CustomField              `json:"customFields,omitempty"`
 	DocumentBaseConfigs         *DocumentBaseConfig         `json:"documentBaseConfigs,omitempty"`
 	Documents                   *Document                   `json:"documents,omitempty"`
+	Extensions                  *interface{}                `json:"extensions,omitempty"` // map[properties:map[themeMedia:map[properties:map[data:map[items:map[properties:map[id:map[example:345e91ec37704ba897929b306c0b943b type:string] type:map[example:theme type:string]] type:object] type:array] links:map[properties:map[related:map[example:/media/518b235332044ad98ca35ebe92d86df8/themeMedia format:uri-reference type:string]] type:object]] type:object] themes:map[properties:map[data:map[items:map[properties:map[id:map[example:443a62a579814c289605a5d9650b0ca1 type:string] type:map[example:theme type:string]] type:object] type:array] links:map[properties:map[related:map[example:/media/518b235332044ad98ca35ebe92d86df8/themes format:uri-reference type:string]] type:object]] type:object]] type:object]
 	FileExtension               *string                     `json:"fileExtension,omitempty"`
 	FileName                    *string                     `json:"fileName,omitempty"`
 	FileSize                    *int                        `json:"fileSize,omitempty"`
@@ -80,6 +81,7 @@ type MediaFolder struct {
 	Name                   string                    `json:"name,omitempty"`
 	Parent                 *MediaFolder              `json:"parent,omitempty"`
 	ParentId               *string                   `json:"parentId,omitempty"`
+	Path                   *string                   `json:"path,omitempty"`
 	UpdatedAt              *time.Time                `json:"updatedAt,omitempty"`
 	UseParentConfiguration *bool                     `json:"useParentConfiguration,omitempty"`
 }

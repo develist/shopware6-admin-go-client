@@ -1,5 +1,8 @@
 package field
 
+// Generated from Shopware Admin API
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
+
 type EntityPropertyName string
 
 const (
