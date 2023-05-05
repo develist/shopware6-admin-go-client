@@ -51,6 +51,6 @@ type CurrencyCountryRounding struct {
 // Rounding helper data structure
 type Rounding struct {
 	Decimals    *int     `json:"decimals,omitempty"`
-	Interval    *float64 `json:"*interval,omitempty"`
+	Interval    *float64 `json:"interval,omitempty"`
 	RoundForNet *bool    `json:"roundForNet,omitempty"`
 }
