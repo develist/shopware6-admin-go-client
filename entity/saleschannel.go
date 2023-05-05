@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // SalesChannel data structure
 // Added since version: 6.0.0.0
@@ -29,7 +29,7 @@ type SalesChannel struct {
 	Customers                       *Customer                       `json:"customers,omitempty"`
 	DocumentBaseConfigSalesChannels *DocumentBaseConfigSalesChannel `json:"documentBaseConfigSalesChannels,omitempty"`
 	Domains                         *SalesChannelDomain             `json:"domains,omitempty"`
-	EventActions                    *EventAction                    `json:"eventActions,omitempty"`
+	Extensions                      *interface{}                    `json:"extensions,omitempty"` // map[properties:map[themes:map[properties:map[data:map[items:map[properties:map[id:map[example:b538e0626cc741fcb1c0d0a3e868aaa2 type:string] type:map[example:theme type:string]] type:object] type:array] links:map[properties:map[related:map[example:/sales-channel/c59febd7bafd4691b491fe8e8744ee60/themes format:uri-reference type:string]] type:object]] type:object]] type:object]
 	FooterCategory                  *Category                       `json:"footerCategory,omitempty"`
 	FooterCategoryId                *string                         `json:"footerCategoryId,omitempty"`
 	FooterCategoryVersionId         *string                         `json:"footerCategoryVersionId,omitempty"`

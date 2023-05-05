@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // StateMachine data structure
 // Added since version: 6.0.0.0
@@ -46,22 +46,24 @@ type StateMachineHistory struct {
 // Added since version: 6.0.0.0
 // Required fields: technicalName, stateMachineId, createdAt, name
 type StateMachineState struct {
-	CreatedAt                      *time.Time              `json:"createdAt,omitempty"`
-	CustomFields                   *[]CustomField          `json:"customFields,omitempty"`
-	FromStateMachineHistoryEntries *StateMachineHistory    `json:"fromStateMachineHistoryEntries,omitempty"`
-	FromStateMachineTransitions    *StateMachineTransition `json:"fromStateMachineTransitions,omitempty"`
-	Id                             string                  `json:"id,omitempty"`
-	Name                           string                  `json:"name,omitempty"`
-	OrderDeliveries                *OrderDelivery          `json:"orderDeliveries,omitempty"`
-	OrderTransactions              *OrderTransaction       `json:"orderTransactions,omitempty"`
-	Orders                         *Order                  `json:"orders,omitempty"`
-	StateMachine                   *StateMachine           `json:"stateMachine,omitempty"`
-	StateMachineId                 string                  `json:"stateMachineId,omitempty"`
-	TechnicalName                  string                  `json:"technicalName,omitempty"`
-	ToStateMachineHistoryEntries   *StateMachineHistory    `json:"toStateMachineHistoryEntries,omitempty"`
-	ToStateMachineTransitions      *StateMachineTransition `json:"toStateMachineTransitions,omitempty"`
-	Translated                     *interface{}            `json:"translated,omitempty"` // map[type:object]
-	UpdatedAt                      *time.Time              `json:"updatedAt,omitempty"`
+	CreatedAt                      *time.Time                     `json:"createdAt,omitempty"`
+	CustomFields                   *[]CustomField                 `json:"customFields,omitempty"`
+	FromStateMachineHistoryEntries *StateMachineHistory           `json:"fromStateMachineHistoryEntries,omitempty"`
+	FromStateMachineTransitions    *StateMachineTransition        `json:"fromStateMachineTransitions,omitempty"`
+	Id                             string                         `json:"id,omitempty"`
+	Name                           string                         `json:"name,omitempty"`
+	OrderDeliveries                *OrderDelivery                 `json:"orderDeliveries,omitempty"`
+	OrderTransactionCaptureRefunds *OrderTransactionCaptureRefund `json:"orderTransactionCaptureRefunds,omitempty"`
+	OrderTransactionCaptures       *OrderTransactionCapture       `json:"orderTransactionCaptures,omitempty"`
+	OrderTransactions              *OrderTransaction              `json:"orderTransactions,omitempty"`
+	Orders                         *Order                         `json:"orders,omitempty"`
+	StateMachine                   *StateMachine                  `json:"stateMachine,omitempty"`
+	StateMachineId                 string                         `json:"stateMachineId,omitempty"`
+	TechnicalName                  string                         `json:"technicalName,omitempty"`
+	ToStateMachineHistoryEntries   *StateMachineHistory           `json:"toStateMachineHistoryEntries,omitempty"`
+	ToStateMachineTransitions      *StateMachineTransition        `json:"toStateMachineTransitions,omitempty"`
+	Translated                     *interface{}                   `json:"translated,omitempty"` // map[type:object]
+	UpdatedAt                      *time.Time                     `json:"updatedAt,omitempty"`
 }
 
 // StateMachineTransition data structure

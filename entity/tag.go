@@ -3,7 +3,7 @@ package entity
 import "time"
 
 // Generated from Shopware Admin API
-// Version 6.4.9999999.9999999-dev at 2022-06-17 19:07:53 UTC
+// Version 6.5.9999999.9999999-dev at 2023-05-02 19:06:34 UTC
 
 // Tag data structure
 // Added since version: 6.0.0.0
@@ -19,6 +19,7 @@ type Tag struct {
 	NewsletterRecipients *NewsletterRecipient `json:"newsletterRecipients,omitempty"`
 	Orders               *Order               `json:"orders,omitempty"`
 	Products             *Product             `json:"products,omitempty"`
+	Rules                *Rule                `json:"rules,omitempty"`
 	ShippingMethods      *ShippingMethod      `json:"shippingMethods,omitempty"`
 	UpdatedAt            *time.Time           `json:"updatedAt,omitempty"`
 }
